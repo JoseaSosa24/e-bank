@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Bank</title>
+    <link rel="stylesheet" href="./../css/style-cajero.css">
+    <link rel="shortcut icon" href="../img/e-logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- VISTA PRINCIPAL -->
+    <main class="principal" id="principal">
+
+        <header class="superior" id="superior">
+            <form action="../login/login.html">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-cerrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <img src="../img/Salir.png" alt="Salir">
+                </button>
+
+                <!-- Modal -->
+                <section class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <section class="modal-dialog">
+                        <section class="modal-content">
+                            <section class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmación</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </section>
+                            <section class="modal-body">
+                                <p>¿Estás seguro de cerrar sesión?</p>
+                            </section>
+                            <section class="modal-footer">
+                                <button type="button" class="btn btn-secondary">Cancelar</button>
+                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </form>
+        </header>
+
+
+
+        <!-- TRANSACCIONES -->
+        <section class="trasacciones" id="trasacciones">
+            <h1 class="titulo" id="titulo">Selecciona tu transacción</h1>
+            <section class="vista-principal" id="vista-principal">
+                <img src="../img/RetirarDinero.png" alt="Retirar dinero">
+                <img src="../img/TransferirDinero.png" alt="Transferir dinero">
+                <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
+                <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+            </section>
+
+            <!-- RETIRAR -->
+            <section class="retirar" id="retirar">
+                <section class="inconos-retirar" id="iconos-retirar">
+                    <h2 class="retirar">Retirar</h2>
+                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
+                    <u>
+                        <h3>Retirar dinero</h3>
+                    </u>
+                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
+                    <h3>Transferir dinero</h3>
+                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
+                    <h3>Consultar saldo</h3>
+                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+                    <h3>Consignar salgo</h3>
+                </section>
+                <section class="form-retirar" id="form-retirar">
+                    <form class="retirar-dinero" id="retirar-dinero">
+                        <input type="number" placeholder="Digita el valor a retirar">
+                        <input class="btn-retirar" id="btn-retirar" class="btn-retirar" type="button"
+                            value="Retirar dinero">
+                    </form>
+                </section>
+                <section class="tabla-retirar" id="tabla-retirar">
+                    <table class="tabla"" id=" tabla">
+                        <thead>
+                            <tr>
+                                <td>Fecha</td>
+                                <td>Valor</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </section>
+            </section>
+
+
+            <!-- TRANSFERIR -->
+            <section class="transferir" id="transferir">
+                <section class="iconos-transferir" id="iconos-transferir">
+                    <h2 class="transferir">Transferir</h2>
+                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
+                    <h3>Retirar dinero</h3>
+                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
+                    <u>
+                        <h3>Transferir dinero</h3>
+                    </u>
+                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
+                    <h3>Transferir</h3>
+                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+                    <h3>Consignar salgo</h3>
+                </section>
+                <section class="form-transferir" id="form-transferir">
+                    <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text" >
+                    <input id="correo" class="correo" name="correo" placeholder="Correo electónico" type="email">
+                    <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="number">
+                    <input id="monto" class="monto" name="monto" placeholder="Monto a transferir" type="number">
+                    <input id="fecha" class="fecha" name="fecha" placeholder="Fecha" type="datetime-local">
+                    <input id="btn-transferir" name="btn-transferir" class="btn-transferir" type="submit" value="Transferir">
+                </section>
+            </section>
+
+
+            <!-- CONSULTAR -->
+            <section class="consultar" id="consultar">
+                <section class="iconos-consultar" id="iconos-consultar">
+                    <h2 class="consultar">Consultar</h2>
+                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
+                    <h3>Retirar dinero</h3>
+                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
+                    <h3>Transferir dinero</h3>
+                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
+                    <u>
+                        <h3>Consultar saldo</h3>
+                    </u>
+                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+                    <h3>Consignar salgo</h3>
+                </section>
+                <section class="form-consultar" id="form-consultar">
+                    <input type="text" name="" id="" disabled value="Tu saldo actual es de: $">
+                </section>
+            </section>
+
+            <!-- CONSIGNAR -->
+            <section class="consignar" id="consignar">
+                <section class="iconos-consignar" id="iconos-consignar">
+                    <h2 class="consignar">Consignar</h2>
+                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
+                    <h3>Retirar dinero</h3>
+                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
+                    <h3>Transferir dinero</h3>
+                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
+                    <h3>Consultar saldo</h3>
+                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+                    <u>
+                        <h3>Consignar saldo</h3>
+                    </u>
+                </section>
+                <section class="form-consignar" id="form-consignar">
+                    <input type="number" id="valor-consignar" name="valor-consignar" class="valor-consignar" placeholder="Digita el valor a consignar">
+                    <input id="btn-consignar" class="btn-consignar" type="submit" value="Consignar">
+                </section>
+            </section>
+        </section>
+        <footer class="inferior" id="inferior">
+            <img src="../img/logo_ebank.png" alt="">
+        </footer>
+    </main>
+
+    <script src="./../js/js-cajero.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

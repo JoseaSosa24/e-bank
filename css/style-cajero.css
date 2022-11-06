@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,100&display=swap");
+
+* {
+  font-family: "JetBrains Mono", monospace;
+ 
+}
+
+/* 1) Login - @juliana */
+
+/* 2) Vista principal - juliana */
+
+/* 3) Retirar dinero - juliana */
+
+/* 4) Transferir dinero - Xiomara */
+
+/* 5) Consultar saldo - Xiomara */
+
+/* 6) Consignar dinero - Xiomara  */
+
+.invisible {
+  display: none !important;
+}
