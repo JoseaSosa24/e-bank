@@ -13,26 +13,30 @@ const campos = {
 const usuario = document.querySelector('#usuario');
 const contrasena = document.querySelector('#contrasena');
 
+function mensajeError(mensaje) {
+    const mensajeError=document.querySelector("#mensaje-error");
+    mensajeError.classList.add('text-danger','fw-bold')
+    mensajeError.textContent = mensaje;
+}
 
 const validarFormulario = (event) => {
     event.preventDefault();
-    // mensajeError("");
+    mensajeError("");
     // event.preventDefault();
-    // mensajeEmergente.textContent = "";
     switch (event.target.name) {
         case "usuario":
-            validarExpresiones(event, expresionRegular.usuario,usuario,"user");
+            validarExpresiones(event, expresionRegular.usuario, usuario, "user");
             // console.log(nom);
             break;
         case "contrasena":
-            validarExpresiones(event, expresionRegular.password,contrasena,"pass");
+            validarExpresiones(event, expresionRegular.password, contrasena, "pass");
             break;
         default:
             break;
     }
 };
 
-function validarExpresiones(event, expresion,campo, nombreCampo) {
+function validarExpresiones(event, expresion, campo, nombreCampo) {
     if (expresion.test(event.target.value)) {//Validando la expresión regular
         console.log("Validación exitosa");
         campo.classList.add("border", "border-4", "border-success");
@@ -55,5 +59,18 @@ inputs.forEach((input) => {
     input.addEventListener("blur", validarFormulario);
 });
 
+const btnIniciar = document.querySelector('#btn-iniciar');
+const formulario = document.querySelector('#login-form');
+btnIniciar.addEventListener('click', (event) => {
+    // event.preventDefault();
+    
+    if ((campos.user == true && campos.pass == true)) {
+        
+        formulario.action=('./../vista-principal/cajero.html')
+    }else{
+        event.preventDefault();
+        mensajeError("Campos vacios o incorrectos");
+    }
 
+})
 
