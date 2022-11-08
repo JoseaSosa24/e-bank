@@ -20,69 +20,68 @@
         <header class="superior" id="superior">
             <form action="../login/login.html">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-cerrar" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <img src="../img/Salir.png" alt="Salir">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <img src="../img/Salir.png" alt="img-salir">
+                    <p>Salir</p> 
                 </button>
 
                 <!-- Modal -->
-                <section class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <section class="modal-dialog">
-                        <section class="modal-content">
-                            <section class="modal-header">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirmación</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
-                            </section>
-                            <section class="modal-body">
+                            </div>
+                            <div class="modal-body">
                                 <p>¿Estás seguro de cerrar sesión?</p>
-                            </section>
-                            <section class="modal-footer">
-                                <button type="button" class="btn btn-secondary">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
-
-                            </section>
-                        </section>
-                    </section>
-                </section>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-primary">Understood</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </header>
 
-
-
-        <!-- TRANSACCIONES -->
-        <section class="trasacciones" id="trasacciones">
-            <h1 class="titulo" id="titulo">Selecciona tu transacción</h1>
-            <section class="vista-principal" id="vista-principal">
-                <img src="../img/RetirarDinero.png" alt="Retirar dinero">
-                <img src="../img/TransferirDinero.png" alt="Transferir dinero">
-                <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
-                <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+        <!-- VISTA PRINCIPAL-->
+        <section class="vista-principal" id="vista-principal">
+            <section class="titulo" id="titulo">
+                <h1>Selecciona tu transacción</h1>
+            </section>
+            <section class="botones-trasacciones" id="botones-trasacciones">
+                <button>
+                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
+                    <p>Retirar dinero</p>
+                </button>
+                <button>
+                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
+                    <p>Transferir dinero</p>
+                </button>
+                <button>
+                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
+                    <p>Consultar saldo</p>
+                </button>
+                <button>
+                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+                    <p>Consignar saldo</p>
+                </button>
             </section>
 
-            <!-- RETIRAR -->
-            <section class="retirar" id="retirar">
-                <section class="inconos-retirar" id="iconos-retirar">
-                    <h2 class="retirar">Retirar</h2>
-                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
-                    <u>
-                        <h3>Retirar dinero</h3>
-                    </u>
-                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
-                    <h3>Transferir dinero</h3>
-                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
-                    <h3>Consultar saldo</h3>
-                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
-                    <h3>Consignar salgo</h3>
-                </section>
-                <section class="form-retirar" id="form-retirar">
-                    <form class="retirar-dinero" id="retirar-dinero">
+            <!-- TRANSACCIONES -->
+            <section class="transacciones" id="transacciones">
+
+                <!-- RETIRAR -->
+                <section class="retirar" id="retirar">
+                    <form class="form-retirar" id="form-retirar">
                         <input type="number" placeholder="Digita el valor a retirar">
-                        <input class="btn-retirar" id="btn-retirar" class="btn-retirar" type="button"
+                        <input class="btn-retirar" id="btn-retirar" class="btn-retirar" type="submit"
                             value="Retirar dinero">
                     </form>
-                </section>
-                <section class="tabla-retirar" id="tabla-retirar">
                     <table class="tabla"" id=" tabla">
                         <thead>
                             <tr>
@@ -90,78 +89,52 @@
                                 <td>Valor</td>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr>
+                                <td>25-07-2022</td>
+                                <td>10000</td>
+                            </tr>
+                            <tr>
+                                <td>30-30-2022</td>
+                                <td>5000</td>
+                            </tr>
+                            <tr>
+                                <td>11-11-2022</td>
+                                <td>20000</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </section>
-            </section>
+
+                <!-- TRANSFERIR -->
+                <section class="transferir" id="transferir">
+                    <form class="form-transferir" id="form-transferir">
+                        <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text">
+                        <input id="correo" class="correo" name="correo" placeholder="Correo electónico" type="email">
+                        <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="number">
+                        <input id="monto" class="monto" name="monto" placeholder="Monto a transferir" type="number">
+                        <input id="fecha" class="fecha" name="fecha" placeholder="Fecha" type="date">
+                        <input id="btn-transferir" class="btn-transferir" name="btn-transferir" type="submit"
+                            value="Transferir">
+                    </form>
+                </section>
 
 
-            <!-- TRANSFERIR -->
-            <section class="transferir" id="transferir">
-                <section class="iconos-transferir" id="iconos-transferir">
-                    <h2 class="transferir">Transferir</h2>
-                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
-                    <h3>Retirar dinero</h3>
-                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
-                    <u>
-                        <h3>Transferir dinero</h3>
-                    </u>
-                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
-                    <h3>Transferir</h3>
-                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
-                    <h3>Consignar salgo</h3>
+                <!-- CONSULTAR -->
+                <section class="consultar" id="consultar">
+                    <input type="text" disabled placeholder="Tu saldo actual es de: $">
                 </section>
-                <section class="form-transferir" id="form-transferir">
-                    <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text" >
-                    <input id="correo" class="correo" name="correo" placeholder="Correo electónico" type="email">
-                    <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="number">
-                    <input id="monto" class="monto" name="monto" placeholder="Monto a transferir" type="number">
-                    <input id="fecha" class="fecha" name="fecha" placeholder="Fecha" type="datetime-local">
-                    <input id="btn-transferir" name="btn-transferir" class="btn-transferir" type="submit" value="Transferir">
-                </section>
-            </section>
 
-
-            <!-- CONSULTAR -->
-            <section class="consultar" id="consultar">
-                <section class="iconos-consultar" id="iconos-consultar">
-                    <h2 class="consultar">Consultar</h2>
-                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
-                    <h3>Retirar dinero</h3>
-                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
-                    <h3>Transferir dinero</h3>
-                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
-                    <u>
-                        <h3>Consultar saldo</h3>
-                    </u>
-                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
-                    <h3>Consignar salgo</h3>
-                </section>
-                <section class="form-consultar" id="form-consultar">
-                    <input type="text" name="" id="" disabled value="Tu saldo actual es de: $">
-                </section>
-            </section>
-
-            <!-- CONSIGNAR -->
-            <section class="consignar" id="consignar">
-                <section class="iconos-consignar" id="iconos-consignar">
-                    <h2 class="consignar">Consignar</h2>
-                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
-                    <h3>Retirar dinero</h3>
-                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
-                    <h3>Transferir dinero</h3>
-                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo">
-                    <h3>Consultar saldo</h3>
-                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
-                    <u>
-                        <h3>Consignar saldo</h3>
-                    </u>
-                </section>
-                <section class="form-consignar" id="form-consignar">
-                    <input type="number" id="valor-consignar" name="valor-consignar" class="valor-consignar" placeholder="Digita el valor a consignar">
-                    <input id="btn-consignar" class="btn-consignar" type="submit" value="Consignar">
+                <!-- CONSIGNAR -->
+                <section class="consignar" id="consignar">
+                    <form class="form-consignar" id="form-consignar">
+                        <input type="number" placeholder="Digita el valor a consignar">
+                        <input id="btn-consignar" class="btn-consignar" type="submit" value="Consignar">
+                    </form>
                 </section>
             </section>
         </section>
+
         <footer class="inferior" id="inferior">
             <img src="../img/logo_ebank.png" alt="">
         </footer>
