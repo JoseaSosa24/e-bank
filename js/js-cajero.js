@@ -51,7 +51,60 @@ function ocultarAcciones() {
     accionConsignar.classList.add('invisible');
 }
 
-const btnRetirar = document.querySelector('#btn-retirar');
-const btnTransferir = document.querySelector('#btn-transferir');
-const btnConsultar = document.querySelector('#btn-consultar');
-const btnConsignar = document.querySelector('#btn-consignar');
+const botonRetirar = document.querySelector('#boton-retirar');
+const botonTransferir = document.querySelector('#boton-transferir');
+const botonConsultar = document.querySelector('#boton-consultar');
+const botonConsignar = document.querySelector('#boton-consignar');
+
+botonRetirar.addEventListener('click', () => {
+    // reducirElementos();
+    // accionTitulo.textContent = ('Usted seleccionó RETIRAR DINERO')
+    document.querySelector('#boton-retirar p').classList.add('text-decoration-underline');
+    document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-consignar p').classList.remove('text-decoration-underline');
+    accionRetirar.classList.remove('invisible')
+    accionTransferir.classList.add('invisible');
+    accionConsultar.classList.add('invisible');
+    accionConsignar.classList.add('invisible');
+
+});
+botonTransferir.addEventListener('click', () => {
+    // reducirElementos();
+    document.querySelector('#boton-transferir p').classList.add('text-decoration-underline');
+    document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-consignar p').classList.remove('text-decoration-underline');
+    // accionTitulo.textContent = ('Usted seleccionó TRANSFERIR DINERO')
+    accionRetirar.classList.add('invisible')
+    accionTransferir.classList.remove('invisible');
+    accionConsultar.classList.add('invisible');
+    accionConsignar.classList.add('invisible');
+
+});
+botonConsultar.addEventListener('click', () => {
+    // reducirElementos();
+    // accionTitulo.textContent = ('Usted seleccionó CONSULTAR SALDO');
+    document.querySelector('#boton-consultar p').classList.add('text-decoration-underline');
+    document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-consignar p').classList.remove('text-decoration-underline');
+    accionRetirar.classList.add('invisible')
+    accionTransferir.classList.add('invisible');
+    accionConsultar.classList.remove('invisible');
+    accionConsignar.classList.add('invisible');
+
+});
+botonConsignar.addEventListener('click', () => {
+    // reducirElementos();
+    document.querySelector('#boton-consignar p').classList.add('text-decoration-underline');
+    document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
+    document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
+    // accionTitulo.textContent = ('Usted seleccionó CONSIGNAR DINERO');
+    accionRetirar.classList.add('invisible')
+    accionTransferir.classList.add('invisible');
+    accionConsultar.classList.add('invisible');
+    accionConsignar.classList.remove('invisible');
+
+});
