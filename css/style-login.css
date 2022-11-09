@@ -20,10 +20,96 @@ gap: 20px;
 background: linear-gradient(#4986d0, #1254be)!important;
 }
 .login{
-  background-color: aquamarine;
+  margin-top: 0px;
+ 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  gap: 20px;
+; width: 50%;
+}
+.login-form{
+  
+  margin-top: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+  gap: 20px;
+  width: 0%;
+height: 50vh;
+}
+.login-form input{
+  border-radius: 50px;
+  width: 500px;
+  height: 50px;
+  border:white 4px solid;
+  outline: none;
+  margin-bottom: 20px;
 }
 
+.intentos-agotados h1{
+  color: white;
+  color:white;
+  
+}
 
+.mensaje-error {
+ 
+  font-size: 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 500px;
+  height: 50px;
+}
+
+.logo{
+  
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 0%;
+}
+
+ 
+
+/* #usuario::placeholder{
+  text-align: center;
+  color: grey;
+  font-size: 20px;
+
+} */
+
+.login-form input::placeholder{
+  text-align: center;
+  color: grey;
+  font-size: 20px;
+  
+}
+/* #contrasena::placeholder{
+  text-align: center;
+  color: grey;
+  font-size: 20px;
+} */
+.btn-iniciar{
+  background-color: #5CE1E6;
+  font-weight:bold;
+  border-radius: 18px;
+  width: 200px;
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  border:white 4px solid;
+  margin-top: 20px;
+  
+
+}
+.btn-iniciar:hover{
+  background-color: #5BC9FF;
+  color: black;
+  border: white 4px solid;
+}
 
 
 
