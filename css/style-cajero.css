@@ -3,210 +3,232 @@
 * {
   font-family: "JetBrains Mono", monospace;
   color: white;
- 
 }
-body{
-  height: 100%;
+body {
+  height: 100vh;
   background: linear-gradient(#4986d0, #1254be) !important;
 }
 
 /* 1) Login - @juliana */
 
 /* 2) Vista principal - juliana */
-.principal{
+.principal {
   background: linear-gradient(#4986d0, #1254be) !important;
   font-size: 100%;
   font-weight: 100%;
   height: 100vh;
-  
-
 }
-.titulo{
+.titulo {
   text-align: center;
 }
 
-.botones-trasacciones{
+.botones-trasacciones {
   text-align: center;
   padding: 20px;
 }
 
-.vista-principal{
-
-width: 100%;
-height: auto;
-
+.vista-principal {
+  width: 100%;
+  height: auto;
 }
 
-.transacciones{
-  border: solid 2px black;
+.transacciones {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
- /*  height: 100%; */
+  /*  height: 100%; */
 }
 
-
 /* 3) Retirar dinero - juliana */
-.retirar{
+.retirar {
   background-color: blueviolet;
   margin: 1%;
   width: 90%;
   height: 70%;
 }
 
-
 /* 4) Transferir dinero - Xiomara */
-.transferir{
+.transferir {
   display: flex;
   /* height: 100%; */
   font-size: larger;
-  border-radius: 20px ;
+  border-radius: 20px;
   width: 100%;
-  border: solid 2px black;
   padding: 1%;
-  gap: 5%;
+  gap: 3%;
   justify-content: center;
-
-  
+  border: solid 3px bisque;
 }
-.form-transferir{
+
+.form-transferir {
   text-align: center;
-  width: 25%;
+  width: 35%;
+  padding: 1%;
+  height: 470px;
   display: inline-block;
-  height:100%;
   font-size: large;
-  border-radius: 20px ;
-  border: 4px solid white
-
+  border-radius: 20px;
+  border: 4px solid white;
 }
+
 .form-transferir input::placeholder {
   color: white;
-
 }
-.form-transferir input{
+
+.form-transferir input {
   margin-top: 2%;
+   height: 12%;
   margin-bottom: 2%;
-  width: 85%;
-  border-radius: 20px ;
+  width: 100%;
+  border-radius: 20px;
   text-align: center;
   background: transparent;
-
   border: 3px solid white;
   outline: none;
-  
-  
 }
 
-.btn-transferir{
+.btn-transferir {
   margin-top: 2%;
   margin-bottom: 10%;
   font-size: 90%;
-  border-radius: 20px ;
+  height: 11%;
+  width: 45%;
+  border-radius: 20px;
   text-align: center;
   background: transparent;
-  border: 3px solid white
+  border: 3px solid white;
 }
-.btn-transferir:hover{
+
+.btn-transferir:hover {
   background-color: white;
   color: black;
 }
-.tabla-transferir{
-  /* width: 60%; */
- 
-}
-.tabla-transferir tr {
-  /* height: 50%; */
- /*  width:10% ; */
-  border: solid 2px black;
-  
-  
-}
-.tabla-transferir td{
-  border-radius: 20px ;
-  border: 2px solid white
-  
-}
-thead{
-  border-radius: 20px ;
+
+.tabla-transferir {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: white;
+  border-radius: 15px;
 }
 
+.tabla-transferir tr {
+  /* height: 50%; */
+  /*  width:10% ; */
+}
+.tabla-transferir td {
+}
+
+.tabla-transferir thead {
+  background-color: #1254be;
+  display: flex;
+  font-weight: bold;
+}
+.tabla-transferir thead tr {
+  background-color: #1254be;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  width: 100%;
+}
+
+/*  .tabla-transferir tbody{
+
+  background-color: #a112be;
+  display: flex;
+  
+  flex-direction: column; 
+} */
+
+.tabla-transferir tbody tr {
+  background-color: #1223be;
+  flex-direction: column;
+}
+tr,
+td {
+  width: 20%;
+}
+/* .tabla-transferir tbody td{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #be3412;
+  border: solid 3px;
+}  */
 /* 5) Consultar saldo - Xiomara */
-.consultar{
+.consultar {
   width: 50%;
 }
-.consultar input{
-  
+.consultar input {
+  background: transparent;
   padding: 5%;
   margin: 5%;
   font-size: 150%;
   color: white;
   align-items: center;
   width: 100%;
-  border-radius: 20px ;
-  border: 4px solid white
+  border-radius: 20px;
+  border: 4px solid white;
 }
 
 /* 6) Consignar dinero - Xiomara  */
-.consignar{
+.consignar {
   height: 200px;
   display: flex;
   justify-content: center;
   margin: 5%;
   width: 50%;
   align-items: center;
-  border-radius: 20px ;
-  border: 4px solid white
-  
+  border-radius: 20px;
+  border: 4px solid white;
 }
-.form-consignar{
+.form-consignar {
   gap: 20%;
   height: 80%;
   margin: 5%;
   padding: 2%;
   width: 150%;
-  border-radius: 20px ;
+  border-radius: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.form-consignar input::placeholder{
+.form-consignar input::placeholder {
   color: white;
 }
-.btn-consignar:hover{
+.btn-consignar:hover {
   background-color: white;
   color: black;
 }
-.form-consignar input{
+.form-consignar input {
   text-align: center;
   height: 40%;
   width: 100%;
-  border-radius: 20px ;
+  border-radius: 20px;
   background: transparent;
   border: 4px solid white;
   font-size: 150%;
 }
 
- .btn-consignar{
+.btn-consignar {
   width: 50%;
   height: 40%;
   background: transparent;
   color: white;
   font-size: medium;
-  border-radius: 20px ;
+  border-radius: 20px;
   border: 4px solid white;
   font-size: 150%;
- 
-} 
+}
 
-
-.inferior{
+.inferior {
   padding: 2%;
   /* margin-top: 8%; */
 }
-
 
 .invisible {
   display: none !important;
