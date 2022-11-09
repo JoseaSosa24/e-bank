@@ -40,7 +40,7 @@ const accionTransferir = document.querySelector('#transferir');
 const accionConsultar = document.querySelector('#consultar');
 const accionConsignar = document.querySelector('#consignar');
 
-// ocultarAcciones();
+ocultarAcciones();
 
 function ocultarAcciones() {
     // acciones.classList.remove('reducir-elementos');
