@@ -149,7 +149,7 @@ btnIniciar.addEventListener('click', (event) => {
     if (campos.user == true && campos.pass == true) {
         event.preventDefault();
         if (validarCredenciales() == true) {
-            formulario.action = ('./../vista-principal/cajero.html');
+            formulario.action = ('./../vista-principal/index.html');
             formulario.submit();
             limpiarCampos();
         } else {
