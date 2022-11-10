@@ -121,12 +121,12 @@ body {
 }
 
 .tabla-transferir thead {
-  background-color: #1254be;
+  
   display: flex;
   font-weight: bold;
 }
 .tabla-transferir thead tr {
-  background-color: #1254be;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,7 +143,6 @@ body {
 } */
 
 .tabla-transferir tbody tr {
-  background-color: #1223be;
   flex-direction: column;
 }
 tr,
