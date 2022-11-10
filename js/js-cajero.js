@@ -1,3 +1,6 @@
+let saldo=50000;
+let btnGeneral=document.querySelector("#saldo-general")
+
 const usuarios = [
     {
         user: "josesosa",
@@ -69,6 +72,19 @@ botonRetirar.addEventListener('click', () => {
     accionConsignar.classList.add('invisible');
 
 });
+
+const btnRetirar=document.querySelector("#btn-retirar")
+let valorRetirar=document.querySelector("#valor-retirar")
+let parrafo=document.querySelector("#parrafo")
+btnRetirar.addEventListener('click', ()=>{
+parrafo.innerHTML=""
+valorRetirar=document.querySelector("#valor-retirar")
+if(saldo<valorRetirar.value){parrafo.innerHTML="Saldo insuficiente"}
+else if(valorRetirar.value<0){parrafo.innerHTML="Operacion invalida"}
+else{btnGeneral.value=parseFloat(saldo)-parseFloat(valorRetirar.value)
+console.log(btnGeneral.value)}
+})
+
 botonTransferir.addEventListener('click', () => {
     // reducirElementos();
     document.querySelector('#boton-transferir p').classList.add('text-decoration-underline');
@@ -82,9 +98,11 @@ botonTransferir.addEventListener('click', () => {
     accionConsignar.classList.add('invisible');
 
 });
+
 botonConsultar.addEventListener('click', () => {
     // reducirElementos();
     // accionTitulo.textContent = ('Usted seleccionó CONSULTAR SALDO');
+    btnGeneral.value=parseFloat(saldo)
     document.querySelector('#boton-consultar p').classList.add('text-decoration-underline');
     document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
@@ -94,7 +112,7 @@ botonConsultar.addEventListener('click', () => {
     accionConsultar.classList.remove('invisible');
     accionConsignar.classList.add('invisible');
 
-});
+}); 
 botonConsignar.addEventListener('click', () => {
     // reducirElementos();
     document.querySelector('#boton-consignar p').classList.add('text-decoration-underline');
@@ -108,3 +126,4 @@ botonConsignar.addEventListener('click', () => {
     accionConsignar.classList.remove('invisible');
 
 });
+
