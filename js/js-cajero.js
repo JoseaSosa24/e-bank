@@ -1,7 +1,9 @@
-let saldo=50000;
-let btnGeneral=document.querySelector("#saldo-general")
+let saldo = 50000;
+let btnGeneral = document.querySelector("#saldo-general")
 
-const usuarios = [
+
+
+let usuarios = [
     {
         user: "josesosa",
         pass: "12345",
@@ -46,12 +48,7 @@ const accionConsignar = document.querySelector('#consignar');
 ocultarAcciones();
 
 function ocultarAcciones() {
-    // acciones.classList.remove('reducir-elementos');
-    // accionTitulo.textContent = ("");
-    accionRetirar.classList.add('invisible')
-    accionTransferir.classList.add('invisible');
-    accionConsultar.classList.add('invisible');
-    accionConsignar.classList.add('invisible');
+    acciones.classList.add('invisible');
 }
 
 const botonRetirar = document.querySelector('#boton-retirar');
@@ -59,9 +56,15 @@ const botonTransferir = document.querySelector('#boton-transferir');
 const botonConsultar = document.querySelector('#boton-consultar');
 const botonConsignar = document.querySelector('#boton-consignar');
 
+function calcularSaldo(valor, saldo) {
+    return saldo - valor;
+}
+
 botonRetirar.addEventListener('click', () => {
+
     // reducirElementos();
     // accionTitulo.textContent = ('Usted seleccionó RETIRAR DINERO')
+    acciones.classList.remove('invisible');
     document.querySelector('#boton-retirar p').classList.add('text-decoration-underline');
     document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
@@ -73,20 +76,32 @@ botonRetirar.addEventListener('click', () => {
 
 });
 
-const btnRetirar=document.querySelector("#btn-retirar")
-let valorRetirar=document.querySelector("#valor-retirar")
-let parrafo=document.querySelector("#parrafo")
-btnRetirar.addEventListener('click', ()=>{
-parrafo.innerHTML=""
-valorRetirar=document.querySelector("#valor-retirar")
-if(saldo<valorRetirar.value){parrafo.innerHTML="Saldo insuficiente"}
-else if(valorRetirar.value<0){parrafo.innerHTML="Operacion invalida"}
-else{btnGeneral.value=parseFloat(saldo)-parseFloat(valorRetirar.value)
-console.log(btnGeneral.value)}
+const btnRetirar = document.querySelector("#btn-retirar")
+let valorRetirar = document.querySelector("#valor-retirar")
+let parrafo = document.querySelector("#parrafo")
+let saldoNuevo=0;
+btnRetirar.addEventListener('click', () => {
+    parrafo.innerHTML = ""
+    valorRetirar = document.querySelector("#valor-retirar")
+    if (usuarios[1].saldo < valorRetirar.value) {
+        parrafo.innerHTML = "Saldo insuficiente"
+    }
+    else if (valorRetirar.value < 0) { parrafo.innerHTML = "Operacion invalida" }
+    else if (valorRetirar.value.length == 0) {
+        parrafo.innerHTML = "Operacion invalida"
+    }
+    else {
+        saldoNuevo = usuarios[1].saldo-valorRetirar.value;
+        usuarios[1].saldo = saldoNuevo;
+        btnGeneral.value = usuarios[1].saldo
+        console.log(btnGeneral.value)
+    }
 })
+
 
 botonTransferir.addEventListener('click', () => {
     // reducirElementos();
+    acciones.classList.remove('invisible');
     document.querySelector('#boton-transferir p').classList.add('text-decoration-underline');
     document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
@@ -98,11 +113,38 @@ botonTransferir.addEventListener('click', () => {
     accionConsignar.classList.add('invisible');
 
 });
+const btnTransferir = document.querySelector("#btn-transferir")
+let valorTransferir;
+// let parrafo = document.querySelector("#parrafo")
+btnTransferir.addEventListener('click', () => {
+    parrafo.innerHTML = ""
+    valorTransferir = document.querySelector("#monto");
+    if (usuarios[1].saldo < valorTransferir.value) {
+        // parrafo.innerHTML = "Saldo insuficiente"
+        console.log("Saldo insuficiente");
+    }
+    else if (valorTransferir.value < 0) { 
+    // parrafo.innerHTML = "Operacion invalida" 
+    console.log("Operacion invalida");
+    }
+    else if (valorTransferir.value.length == 0) {
+        // parrafo.innerHTML = "Operacion invalida"
+        console.log("Operacion invalida");
+    }
+    else {
+        saldoNuevo = usuarios[1].saldo - parseFloat(valorTransferir.value);
+        usuarios[1].saldo = saldoNuevo;
+        btnGeneral.value = usuarios[1].saldo;
+        console.log(btnGeneral.value)
+    }
+})
 
-botonConsultar.addEventListener('click', () => {
+botonConsultar.addEventListener('click', (e) => {
+    // e.preventDefault();
     // reducirElementos();
     // accionTitulo.textContent = ('Usted seleccionó CONSULTAR SALDO');
-    btnGeneral.value=parseFloat(saldo)
+    acciones.classList.remove('invisible');
+    btnGeneral.value = parseFloat(usuarios[1].saldo);
     document.querySelector('#boton-consultar p').classList.add('text-decoration-underline');
     document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
@@ -112,9 +154,10 @@ botonConsultar.addEventListener('click', () => {
     accionConsultar.classList.remove('invisible');
     accionConsignar.classList.add('invisible');
 
-}); 
+});
 botonConsignar.addEventListener('click', () => {
     // reducirElementos();
+    acciones.classList.remove('invisible');
     document.querySelector('#boton-consignar p').classList.add('text-decoration-underline');
     document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
@@ -124,6 +167,21 @@ botonConsignar.addEventListener('click', () => {
     accionTransferir.classList.add('invisible');
     accionConsultar.classList.add('invisible');
     accionConsignar.classList.remove('invisible');
-
 });
+
+const btnConsignar = document.querySelector("#btn-consignar")
+let valorConsignar;
+// let parrafo = document.querySelector("#parrafo")
+btnConsignar.addEventListener('click', () => {
+    valorConsignar=document.querySelector("#valor-cosignar");
+    if (valorConsignar.value<=0) {
+        console.log("Operacion invalida");
+    } else {
+        saldoNuevo=parseFloat(valorConsignar.value)+usuarios[1].saldo;
+        usuarios[1].saldo=saldoNuevo;
+        btnGeneral.value=usuarios[1].saldo;
+        console.log(btnGeneral.value)
+    }
+})
+
 
