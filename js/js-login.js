@@ -26,6 +26,8 @@ const usuarios = [
     }
 ];
 
+
+
 const expresionRegular = {
     usuario: /^[a-zA-Z0-9\_]{4,16}$/, // Letras, numeros, guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -57,10 +59,23 @@ function mostrandoIncorrecto(campo) {
     campo.classList.add("bg-danger");
 }
 
+function devolverPosicion() {
+    // let sw = false;
+    for (let i = 0; i < usuarios.length; i++) {
+        if (usuario.value === usuarios[i].user && contrasena.value === usuarios[i].pass) {
+            // console.log("Usuario: " + usuario.value + "=" + usuarios[i].user + "Pass:" + contrasena.value + "=" + usuarios[i].pass);
+         return usuarios[i].user;
+        } else {
+            // console.log("Usuario: " + usuario.value + "!=" + usuarios[i].user + " Pass:" + contrasena.value + "!=" + usuarios[i].pass);
+        }
+    }
+}
+
 function validarExpresiones(event, expresion, campo, nombreCampo) {
     if (expresion.test(event.target.value)) {//Validando la expresión regular
         console.log("Validación exitosa");
         mostrandoCorrecto(campo);
+        console.log(devolverPosicion());
         campos[nombreCampo] = true;
 
     } else {
@@ -84,7 +99,7 @@ const validarFormulario = (event) => {
     switch (event.target.name) {
         case "usuario":
             validarExpresiones(event, expresionRegular.usuario, usuario, "user");
-            // console.log(nom);
+            
             break;
         case "contrasena":
             validarExpresiones(event, expresionRegular.password, contrasena, "pass");
@@ -114,6 +129,9 @@ function validarCredenciales() {
     return sw;
 }
 
+
+
+
 const btnIniciar = document.querySelector('#btn-iniciar');
 const formulario = document.querySelector('#login-form');
 
@@ -124,16 +142,6 @@ function intentosAgotados(contError) {
         sectionAgotados.textContent = "La aplicación se ha cerrado porque ha agotado sus intentos. :( -Error Capa 8"
     }
 };
-
-window.addEventListener('keydown', function (e) {
-    if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
-        if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
-            e.preventDefault();
-            return false;
-        }
-    }
-}, true
-);
 
 var contarErrores = 3;
 btnIniciar.addEventListener('click', (event) => {
