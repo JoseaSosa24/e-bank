@@ -43,12 +43,7 @@ const accionConsignar = document.querySelector('#consignar');
 ocultarAcciones();
 
 function ocultarAcciones() {
-    // acciones.classList.remove('reducir-elementos');
-    // accionTitulo.textContent = ("");
-    accionRetirar.classList.add('invisible')
-    accionTransferir.classList.add('invisible');
-    accionConsultar.classList.add('invisible');
-    accionConsignar.classList.add('invisible');
+    acciones.classList.add('invisible');
 }
 
 const botonRetirar = document.querySelector('#boton-retirar');
@@ -59,6 +54,7 @@ const botonConsignar = document.querySelector('#boton-consignar');
 botonRetirar.addEventListener('click', () => {
     // reducirElementos();
     // accionTitulo.textContent = ('Usted seleccionó RETIRAR DINERO')
+    acciones.classList.remove('invisible');
     document.querySelector('#boton-retirar p').classList.add('text-decoration-underline');
     document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
@@ -71,6 +67,7 @@ botonRetirar.addEventListener('click', () => {
 });
 botonTransferir.addEventListener('click', () => {
     // reducirElementos();
+    acciones.classList.remove('invisible');
     document.querySelector('#boton-transferir p').classList.add('text-decoration-underline');
     document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
@@ -85,6 +82,7 @@ botonTransferir.addEventListener('click', () => {
 botonConsultar.addEventListener('click', () => {
     // reducirElementos();
     // accionTitulo.textContent = ('Usted seleccionó CONSULTAR SALDO');
+    acciones.classList.remove('invisible');
     document.querySelector('#boton-consultar p').classList.add('text-decoration-underline');
     document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-retirar p').classList.remove('text-decoration-underline');
@@ -97,6 +95,7 @@ botonConsultar.addEventListener('click', () => {
 });
 botonConsignar.addEventListener('click', () => {
     // reducirElementos();
+    acciones.classList.remove('invisible');
     document.querySelector('#boton-consignar p').classList.add('text-decoration-underline');
     document.querySelector('#boton-consultar p').classList.remove('text-decoration-underline');
     document.querySelector('#boton-transferir p').classList.remove('text-decoration-underline');
@@ -108,3 +107,5 @@ botonConsignar.addEventListener('click', () => {
     accionConsignar.classList.remove('invisible');
 
 });
+
+
