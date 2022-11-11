@@ -79,7 +79,25 @@ botonRetirar.addEventListener('click', () => {
 const btnRetirar = document.querySelector("#btn-retirar")
 let valorRetirar = document.querySelector("#valor-retirar")
 let parrafo = document.querySelector("#parrafo")
-let saldoNuevo=0;
+let saldoNuevo = 0;
+
+const tiempoTranscurrido = Date.now();
+const hoy = new Date(tiempoTranscurrido);
+function agregarRetiro() {
+
+    const trRetiro = document.createElement("tr");
+    const tdFecha = document.createElement("td");
+    const tdValorRetiro = document.createElement("td");
+    // const tbody=document.createElement("tbody");
+    const table = document.querySelector("#tabla-retiros tbody")
+    tdFecha.textContent = hoy.toLocaleDateString();
+    tdValorRetiro.textContent = document.querySelector('#valor-retirar').value;
+    table.appendChild(trRetiro);
+    // tbody.appendChild(trRetiro)
+    trRetiro.appendChild(tdFecha);
+    trRetiro.appendChild(tdValorRetiro);
+}
+
 btnRetirar.addEventListener('click', () => {
     parrafo.innerHTML = ""
     valorRetirar = document.querySelector("#valor-retirar")
@@ -91,10 +109,11 @@ btnRetirar.addEventListener('click', () => {
         parrafo.innerHTML = "Operacion invalida"
     }
     else {
-        saldoNuevo = usuarios[1].saldo-valorRetirar.value;
+        saldoNuevo = usuarios[1].saldo - valorRetirar.value;
         usuarios[1].saldo = saldoNuevo;
         saldoGeneral.value = usuarios[1].saldo
         console.log(saldoGeneral.value)
+        agregarRetiro();
     }
 })
 
@@ -115,8 +134,32 @@ botonTransferir.addEventListener('click', () => {
 });
 const btnTransferir = document.querySelector("#btn-transferir")
 let valorTransferir;
-let parrafoTransferir=document.querySelector("#error-transferir")
+let parrafoTransferir = document.querySelector("#error-transferir")
 // let parrafo = document.querySelector("#parrafo")
+function agregarTransferencia() {
+    const tr = document.createElement("tr");
+    const tdNombre = document.createElement("td");
+    const tdCorreo = document.createElement("td");
+    const tdCuenta = document.createElement("td");
+    const tdMonto =document.createElement("td");
+    const tdFecha = document.createElement("td");
+    const tablaTransferencia = document.querySelector("#tabla-transferir tbody");
+    tdNombre.textContent = document.querySelector('#nombre').value;
+    tdCorreo.textContent=document.querySelector('#correo').value;
+    tdCuenta.textContent =document.querySelector('#cuenta').value;
+    tdMonto.textContent=document.querySelector('#monto').value;
+    tdFecha.textContent=document.querySelector('#fecha').value
+    tablaTransferencia.appendChild(tr);
+    tr.appendChild(tdNombre);
+    tr.appendChild(tdCorreo);
+    tr.appendChild(tdCuenta);
+    tr.appendChild(tdMonto);
+    tr.appendChild(tdFecha);
+
+    
+    
+}
+
 btnTransferir.addEventListener('click', () => {
     parrafoTransferir.innerHTML = ""
     valorTransferir = document.querySelector("#monto");
@@ -124,13 +167,13 @@ btnTransferir.addEventListener('click', () => {
         parrafoTransferir.innerHTML = "Saldo insuficiente"
         console.log("Saldo insuficiente");
     }
-    else if (valorTransferir.value < 0) { 
-    parrafoTransferir.innerHTML = "Operacion invalida" 
-    console.log("Operacion invalida");
+    else if (valorTransferir.value < 0) {
+        parrafoTransferir.innerHTML = "Operacion invalida"
+        console.log("Operacion invalida");
     }
     else if (valorTransferir.value.length == 0) {
-    parrafoTransferir.innerHTML = "Operacion invalida"
-    console.log("Operacion invalida");
+        parrafoTransferir.innerHTML = "Operacion invalida"
+        console.log("Operacion invalida");
     }
     else {
         saldoNuevo = usuarios[1].saldo - parseFloat(valorTransferir.value);
@@ -138,6 +181,7 @@ btnTransferir.addEventListener('click', () => {
         saldoGeneral.value = usuarios[1].saldo;
         console.log(saldoGeneral.value)
         parrafoTransferir.innerHTML = "Operacion Exitosa"
+        agregarTransferencia();
     }
 })
 
@@ -173,19 +217,19 @@ botonConsignar.addEventListener('click', () => {
 
 const btnConsignar = document.querySelector("#btn-consignar")
 let valorConsignar;
-let parrafoConsignar=document.querySelector("#error-consignar")
+let parrafoConsignar = document.querySelector("#error-consignar")
 // let parrafo = document.querySelector("#parrafo")
 btnConsignar.addEventListener('click', () => {
-    parrafoConsignar.innerHTML=""
-    valorConsignar=document.querySelector("#valor-cosignar");
-    if (valorConsignar.value<=0) {
-        parrafoConsignar.innerHTML="Operacion invalida";
+    parrafoConsignar.innerHTML = ""
+    valorConsignar = document.querySelector("#valor-cosignar");
+    if (valorConsignar.value <= 0) {
+        parrafoConsignar.innerHTML = "Operacion invalida";
     } else {
-        saldoNuevo=parseFloat(valorConsignar.value)+usuarios[1].saldo;
-        usuarios[1].saldo=saldoNuevo;
-        saldoGeneral.value=usuarios[1].saldo;
+        saldoNuevo = parseFloat(valorConsignar.value) + usuarios[1].saldo;
+        usuarios[1].saldo = saldoNuevo;
+        saldoGeneral.value = usuarios[1].saldo;
         console.log(saldoGeneral.value)
-        parrafoConsignar.innerHTML="Consignación exitosa";
+        parrafoConsignar.innerHTML = "Consignación exitosa";
     }
 })
 
