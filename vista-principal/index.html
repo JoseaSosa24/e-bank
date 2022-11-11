@@ -110,6 +110,7 @@
                 <!-- TRANSFERIR -->
                 <section class="transferir" id="transferir">
                     <form class="form-transferir" id="form-transferir">
+                        <p id="error-transferir"></p>
                         <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text">
                         <input id="correo" class="correo" name="correo" placeholder="Correo electónico" type="email">
                         <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="number">
@@ -166,12 +167,16 @@
 
                 <!-- CONSULTAR -->
                 <section class="consultar" id="consultar">
-                    <input id="saldo-general" type="text" disabled value="Tu saldo actual es de: 10000000 $">
+                    <h3>Saldo actual: </h3>
+                 <input id="saldo-general" type="text" disabled>
+               
+                    
                 </section>  
 
                 <!-- CONSIGNAR -->
                   <section class="consignar" id="consignar">
                     <form class="form-consignar" id="form-consignar">
+                        <p id="error-consignar"></p>
                         <input id="valor-cosignar" type="number" placeholder="Digita el valor a consignar">
                         <button id="btn-consignar" class="btn-consignar" type="button" >Consignar</button>
                     </form>
