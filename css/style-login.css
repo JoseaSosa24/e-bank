@@ -60,29 +60,31 @@ main {
 }
 
 .btn-iniciar {
-  background-color: #5ce1e6;
-  font-weight: bold;
-  width: 35%;
-  height: 70px;
+  font-size: 16pt;
   color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  border: white 4px solid;
-  margin-top: 20px;
-  border: 3px solid #c7f8f9;
-  border-radius: 20px;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  -webkit-transform: translate(0, 0);
-  transform: translate(0, 0);
+  /* outline: none; */
+  text-decoration: none;
+  outline: none;
+  background-color: #5ce1e6;
+  border-radius: 15px;
+  border: solid 4px;
+  border-color: white;
+  width: 220px;
+  height: 60px;
+  -webkit-text-stroke: 1px white;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
 }
 .btn-iniciar:hover {
   /* background-color: #5bc9ff; */
-  color: black;
+  /* background-color: white; */
+  color: black !important;
+  border-color: #5ce1e6;
+  font-size: 18pt;
   /* border: white 4px solid; */
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
-  border: 5px solid #6ab1c9;
+  /* border: 5px solid #5ce1e6; */
 }
 
 .intentos-agotados {
@@ -99,23 +101,37 @@ main {
   color: white;
   /* margin-bottom: 20%; */
 }
-.intentos-agotados a {
-  font-size: 150%;
-  color: #5ce1e6;
+.intentos-agotados button {
+  font-size: 14pt;
+  color: white;
   /* outline: none; */
   text-decoration: none;
+  outline: none;
+  background-color: #5ce1e6;
+  border-radius: 15px;
+  border: solid 4px;
+  border-color: white;
+  width: 220px;
+  height: 60px;
+  -webkit-text-stroke: 1px white;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
 }
 
-.intentos-agotados a:hover {
+.intentos-agotados button:hover {
   /* color: white !important; */
   /* border: 5px; */
-  color: #40e0e6;
+  color: black;
   font-weight: bold;
-  text-decoration: underline !important;
+  font-size: 15pt;
+  /* background-color: white; */
+  border-color: #5ce1e6;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
 }
 
 .mensaje-error {
-  font-size: 18px;
+  font-size: 14pt;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -131,8 +147,8 @@ main {
 
 .login-form input::placeholder {
   text-align: center;
-  color: grey;
   font-size: 22px;
   font-weight: bold;
   opacity: 50%;
+  
 }
