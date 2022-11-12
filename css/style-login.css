@@ -60,7 +60,7 @@ main {
 }
 
 .btn-iniciar {
-  font-size: 18pt;
+  font-size: 16pt;
   color: white;
   /* outline: none; */
   text-decoration: none;
@@ -71,16 +71,20 @@ main {
   border-color: white;
   width: 220px;
   height: 60px;
+  -webkit-text-stroke: 1px white;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
 }
 .btn-iniciar:hover {
   /* background-color: #5bc9ff; */
-  color: black;
-  background-color: white;
+  /* background-color: white; */
+  color: black !important;
   border-color: #5ce1e6;
+  font-size: 18pt;
   /* border: white 4px solid; */
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
-  border: 5px solid #5ce1e6;
+  /* border: 5px solid #5ce1e6; */
 }
 
 .intentos-agotados {
@@ -109,7 +113,9 @@ main {
   border-color: white;
   width: 220px;
   height: 60px;
-
+  -webkit-text-stroke: 1px white;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
 }
 
 .intentos-agotados button:hover {
@@ -117,8 +123,11 @@ main {
   /* border: 5px; */
   color: black;
   font-weight: bold;
-  background-color: white;
+  font-size: 15pt;
+  /* background-color: white; */
   border-color: #5ce1e6;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
 }
 
 .mensaje-error {
@@ -138,8 +147,8 @@ main {
 
 .login-form input::placeholder {
   text-align: center;
-  color:white);
   font-size: 22px;
   font-weight: bold;
   opacity: 50%;
+  
 }

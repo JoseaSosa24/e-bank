@@ -54,10 +54,20 @@ main {
   /*  height: 100%; */
 }
 
+/* Botones secciones principales */
 .botones-transacciones button {
   background: transparent;
   border: none;
-  margin: 50px;
+  margin: 40px;
+  -webkit-text-stroke: 1px rgb(255, 255, 255);
+}
+
+.botones-transacciones button:hover {
+  background-color: #1254be;
+  border-radius: 10px;
+  /* border-color:   ; */
+  font-weight: bold;
+  /* -webkit-text-stroke: 1px white; */
 }
 
 .botones-transacciones .img-consultar {
@@ -69,30 +79,42 @@ main {
   font-size: 21px;
   /* padding: 4%; */
 }
-/* Botones secciones principales */
-.botones-transacciones button:hover {
-  background-color:#5ce1e6;
-  border-radius: 10px;
-  border-color:  #4986d0 ;
-  font-weight: bold;
-  -webkit-text-stroke: 1px white;
-  
 
+.boton-salir {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  padding: 1%;
+  height: 100px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .boton-salir:hover {
-  background-color: #5ce1e6;
+  background-color: #1254be;
   border-radius: 10px;
-  
 }
 
+.modal {
+  background: linear-gradient(#4986d0, #1254be) !important;
+}
+
+.modal-content {
+  background-color: #1254be !important;
+  border-radius: 20px !important;
+}
+
+/*Botonos de los formularios*/
 .transacciones button:hover {
-  background-color: rgb(255, 255, 255);
-  border: #4986d0 4px solid;
-  font-weight: bold;
-  color: #000000;
-  -webkit-text-stroke: 1px black;
-  
+  color: black !important;
+  border-color: #5ce1e6;
+  font-size: 15pt;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
 }
 
 .transacciones p {
@@ -150,16 +172,19 @@ main {
 }
 .form-retirar button {
   /* margin-bottom: 10%; */
-  font-size: 90%;
+  font-size: 12pt;
   width: 50%;
   height: 28%;
   border-radius: 20px;
   text-align: center;
-  background: transparent;
-  border: 3px solid white;
+  /* background: transparent; */
+  /* border: 3px solid white; */
+  border: transparent;
   font-weight: bold;
   background-color: #5ce1e6;
+  -webkit-text-stroke: 1px white;
 }
+
 /* .form-retirar button:hover {
   background-color: white;
   color: black;
@@ -240,16 +265,19 @@ main {
 .btn-transferir {
   margin-top: 2%;
   /* margin-bottom: 10%; */
-  font-size: 15pt;
+  font-size: 14pt;
   height: 50px;
   width: 50%;
   border-radius: 20px;
   text-align: center;
   background: transparent;
-  border: 3px solid white;
+  /* border: 3px solid white; */
+  font-size: 13pt;
+  border: transparent;
   font-weight: bold;
   background-color: #5ce1e6;
-
+  -webkit-text-stroke: 1px white;
+  margin-bottom: 2%;
 }
 
 /* .sferir:hover {
@@ -364,12 +392,11 @@ thead td {
   width: 50%;
   border-radius: 20px;
   text-align: center;
-  background: transparent;
-  border: 3px solid white;
+  font-size: 13pt;
+  border: transparent;
   font-weight: bold;
-  outline: none;
   background-color: #5ce1e6;
- 
+  -webkit-text-stroke: 1px white;
 }
 /* .btn-consignar:hover {
   background-color: white;
@@ -390,24 +417,6 @@ thead td {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-}
-.boton-salir {
-  margin-right: 20px;
-  width: 100%;
-  padding: 2%;
-  height: 90%;
-  background: transparent;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-}
-.modal {
-  background: linear-gradient(#4986d0, #1254be) !important;
-}
-
-.modal-content {
-  background-color: #1254be !important;
-  border-radius: 20px !important;
 }
 
 /* .tabla{
