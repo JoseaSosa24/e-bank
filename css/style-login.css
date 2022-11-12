@@ -4,64 +4,79 @@
   margin: 0%;
   padding: 0%;
   font-family: "JetBrains Mono", monospace;
-  
- }
-
+}
 
 .invisible {
   display: none !important;
 }
 .principal {
-display: flex;
-flex-direction: column;
-width: 100%;
-height: 100vh;
-justify-content: center; 
-align-items: center;
-gap: 20px;
-background: linear-gradient(#4986d0, #1254be)!important;
-}
-.login{
-  margin-top: 0px;
- 
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
   align-items: center;
   gap: 20px;
-; width: 50%;
+  background: linear-gradient(#4986d0, #1254be) !important;
 }
-.login-form{
-  
+.login {
+  margin-top: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
+}
+.login-form {
   margin-top: 0%;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   gap: 20px;
   width: 0%;
-height: 50vh;
+  height: 50vh;
 }
-.login-form input{
+.login-form input {
   border-radius: 50px;
   text-align: center;
   width: 500px;
-  height: 50px;
-  border:white 4px solid;
+  height: 75px;
+  border: white 4px solid;
   outline: none;
   margin-bottom: 20px;
   outline: none;
+  font-size: 22px;
+}
+.intentos-agotados {
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20%;
 }
 
-.intentos-agotados h1{
+.intentos-agotados h1 {
   color: white;
-  color:white;
-  
+  /* margin-bottom: 20%; */
+}
+.intentos-agotados a {
+  font-size: 150%;
+  color: #5bc9ff;
+  /* outline: none; */
+  text-decoration: none;
+  /* background-color: #4986d0; */
+}
+
+.intentos-agotados a::placeholder {
+  color: white !important;
 }
 
 .mensaje-error {
- 
-  font-size: 22px;
+  font-size: 15px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -69,14 +84,11 @@ height: 50vh;
   height: 50px;
 }
 
-.logo{
-  
+.logo {
   text-align: center;
   margin-top: 10%;
   margin-bottom: 0%;
 }
-
- 
 
 /* #usuario::placeholder{
   text-align: center;
@@ -85,35 +97,29 @@ height: 50vh;
 
 } */
 
-.login-form input::placeholder{
+.login-form input::placeholder {
   text-align: center;
   color: grey;
   font-size: 20px;
-  
 }
 /* #contrasena::placeholder{
   text-align: center;
   color: grey;
   font-size: 20px;
 } */
-.btn-iniciar{
-  background-color: #5CE1E6;
-  font-weight:bold;
+.btn-iniciar {
+  background-color: #5ce1e6;
+  font-weight: bold;
   border-radius: 18px;
   width: 200px;
-  height: 50px;
+  height: 80px;
   color: white;
   font-size: 20px;
-  border:white 4px solid;
+  border: white 4px solid;
   margin-top: 20px;
-  
-
 }
-.btn-iniciar:hover{
-  background-color: #5BC9FF;
+.btn-iniciar:hover {
+  background-color: #5bc9ff;
   color: black;
   border: white 4px solid;
 }
-
-
-

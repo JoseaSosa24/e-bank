@@ -46,17 +46,17 @@ const contrasena = document.querySelector('#contrasena');
 function mensajeError(mensaje) {
     const mensajeError = document.querySelector("#mensaje-error");
     mensajeError.classList.add('text-white', 'fw-bold')
-    mensajeError.textContent=mensaje;
+    mensajeError.textContent = mensaje;
 }
 
 function mostrandoCorrecto(campo) {
-    campo.classList.remove("bg-white");
+    campo.classList.remove("border", "border-4", "border-danger");
     campo.classList.add("border", "border-4", "border-success");
 }
 
 function mostrandoIncorrecto(campo) {
     campo.classList.remove("border", "border-4", "border-success");
-    campo.classList.add("",);
+    campo.classList.add("border", "border-4", "border-danger");
 }
 
 function devolverPosicion() {
@@ -64,7 +64,7 @@ function devolverPosicion() {
     for (let i = 0; i < usuarios.length; i++) {
         if (usuario.value === usuarios[i].user && contrasena.value === usuarios[i].pass) {
             // console.log("Usuario: " + usuario.value + "=" + usuarios[i].user + "Pass:" + contrasena.value + "=" + usuarios[i].pass);
-         return usuarios[i].user;
+            return usuarios[i].user;
         } else {
             // console.log("Usuario: " + usuario.value + "!=" + usuarios[i].user + " Pass:" + contrasena.value + "!=" + usuarios[i].pass);
         }
@@ -99,7 +99,7 @@ const validarFormulario = (event) => {
     switch (event.target.name) {
         case "usuario":
             validarExpresiones(event, expresionRegular.usuario, usuario, "user");
-            
+
             break;
         case "contrasena":
             validarExpresiones(event, expresionRegular.password, contrasena, "pass");
@@ -125,7 +125,6 @@ function validarCredenciales() {
             // console.log("Usuario: " + usuario.value + "!=" + usuarios[i].user + " Pass:" + contrasena.value + "!=" + usuarios[i].pass);
         }
     }
-
     return sw;
 }
 
@@ -139,7 +138,9 @@ function intentosAgotados(contError) {
     let sectionAgotados = document.querySelector('#agotados h1');
     if (parseInt(contError) === 0) {
         formulario.classList.add('invisible');
+        document.querySelector('.intentos-agotados').classList.remove('invisible');
         sectionAgotados.textContent = "La aplicación se ha cerrado porque ha agotado sus intentos. :( -Error Capa 8"
+        document.querySelector('#intento-nuevo').textContent=('Intente de nuevo dando click aquí')
     }
 };
 
@@ -166,5 +167,12 @@ btnIniciar.addEventListener('click', (event) => {
         mensajeError("Campos vacios o incorrectos");
     }
 
-})
+});
 
+const intentoNuevo = document.querySelector('#intento-nuevo');
+intentoNuevo.addEventListener((e) => {
+    document.querySelector('.intentos-agotados').classList.add('invisible');
+    formulario.classList.remove('invisible');
+
+
+});
