@@ -89,7 +89,7 @@ function agregarRetiro() {
     const tdFecha = document.createElement("td");
     const tdValorRetiro = document.createElement("td");
     // const tbody=document.createElement("tbody");
-    const table = document.querySelector("#tabla-retiros tbody")
+    const table = document.querySelector("#tabla-retirar tbody")
     tdFecha.textContent = hoy.toLocaleDateString();
     tdValorRetiro.textContent = document.querySelector('#valor-retirar').value;
     table.appendChild(trRetiro);
@@ -148,7 +148,8 @@ function agregarTransferencia() {
     tdCorreo.textContent=document.querySelector('#correo').value;
     tdCuenta.textContent =document.querySelector('#cuenta').value;
     tdMonto.textContent=document.querySelector('#monto').value;
-    tdFecha.textContent=document.querySelector('#fecha').value
+    // tdFecha.textContent=document.querySelector('#fecha').value
+    tdFecha.textContent = hoy.toLocaleDateString();
     tablaTransferencia.appendChild(tr);
     tr.appendChild(tdNombre);
     tr.appendChild(tdCorreo);
