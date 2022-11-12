@@ -52,7 +52,7 @@ body {
   padding: 1%;
   gap: 3%;
   justify-content: center;
-  border: solid 3px bisque;
+  border: solid 3px white;
 }
 
 .form-transferir {
@@ -253,40 +253,44 @@ td {
 
   .retirar{
    
-   border:2px solid #1c2c3f;
+    
     display: flex;
-    width: 1020px;
-    height: 400px;
-    gap: 20px;
-    margin: 20px;
-    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 300px;
+   
     border-radius: 15px;
     
   }
-.btn-retirar{
+/* .btn-retirar{
   background: transparent;
   align-content: center;
   display: inline;
-  width: 220px;
+  width: 350px;
   height: 40px;
   border-radius: 15px;
   border-style: solid 2px white;
   border-color: white;
   outline: none;
-}
+} */
 .form-retirar{
- 
-  display: flex;
-  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  padding: 3%;
+  /*  height: 470px;*/
+  display: inline-block;
+  justify-content: center;
   align-items: center;
-  width: 500px;
-  /* height: 300px; */
-  background: transparent;
-  gap: 10px;
+  font-size: large;
+  border-radius: 20px;
   border: 2px solid white;
-  font-size: medium;
-  border-radius: 30px;
-  font-size: 150%;
+  
+}
+.form-retirar input{
+
+}
+.form-retirar button{
   
 }
 
@@ -296,27 +300,36 @@ wi
 } */
 .tabla{
   width: 50%;
-  height: 50%;
+  height: 100%;
   margin-left: 150px;
-  border-radius: 15px;
+  border-radius: 60%;
+  border: 2px solid white;
+
 
 }
-.valor-retirar{
+/* .valor-retirar{
+  
+  align-items: center;
+  justify-content: center;
   background: transparent;
   align-content: center;
   display: inline;
-  width: 220px;
+  width: 350px;
   height: 40px;
+ 
   border-radius: 15px;
   border-style: solid 2px white;
   border-color: white;
   outline: none;
   text-align: center;
+  
 
-}
+} */
 
 .valor-retirar input::placeholder{
+ 
   text-align: center ;
   color: white;
+  width: 350px;
 }
 
