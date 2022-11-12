@@ -45,18 +45,18 @@ const contrasena = document.querySelector('#contrasena');
 
 function mensajeError(mensaje) {
     const mensajeError = document.querySelector("#mensaje-error");
-    mensajeError.classList.add('text-danger', 'fw-bold')
+    mensajeError.classList.add('text-white', 'fw-bold')
     mensajeError.textContent=mensaje;
 }
 
 function mostrandoCorrecto(campo) {
-    campo.classList.remove("bg-danger");
+    campo.classList.remove("bg-white");
     campo.classList.add("border", "border-4", "border-success");
 }
 
 function mostrandoIncorrecto(campo) {
     campo.classList.remove("border", "border-4", "border-success");
-    campo.classList.add("bg-danger");
+    campo.classList.add("",);
 }
 
 function devolverPosicion() {
@@ -149,7 +149,7 @@ btnIniciar.addEventListener('click', (event) => {
     if (campos.user == true && campos.pass == true) {
         event.preventDefault();
         if (validarCredenciales() == true) {
-            formulario.action = ('./../vista-principal/cajero.html');
+            formulario.action = ('./../vista-principal/index.html');
             formulario.submit();
             limpiarCampos();
         } else {

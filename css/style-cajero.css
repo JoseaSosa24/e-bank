@@ -3,6 +3,7 @@
 * {
   font-family: "JetBrains Mono", monospace;
   color: white;
+  box-sizing: border-box;
 }
 body {
   height: 100vh;
@@ -12,12 +13,14 @@ body {
 /* 1) Login - @juliana */
 
 /* 2) Vista principal - juliana */
+
 .principal {
   background: linear-gradient(#4986d0, #1254be) !important;
   font-size: 100%;
   font-weight: 100%;
   height: 100vh;
 }
+
 .titulo {
   text-align: center;
 }
@@ -52,7 +55,6 @@ body {
   padding: 1%;
   gap: 3%;
   justify-content: center;
-  border: solid 3px white;
 }
 
 .form-transferir {
@@ -72,7 +74,7 @@ body {
 
 .form-transferir input {
   margin-top: 2%;
-   height: 12%;
+  height: 12%;
   margin-bottom: 2%;
   width: 100%;
   border-radius: 20px;
@@ -99,58 +101,31 @@ body {
   color: black;
 }
 
-.tabla-transferir {
-  display: flex;
-  flex-direction: column;
-  border-style: solid;
-  border-color: white;
-  border-radius: 15px;
+table {
+  text-align: center;
+  width: 35%;
+  padding: 1%;
+  font-size: large;
+  border-radius: 20px;
+  border: 4px solid white;
 }
 
-.tabla-transferir tr {
-  /* height: 50%; */
-  /*  width:10% ; */
-}
-.tabla-transferir td {
-}
-
-.tabla-transferir thead {
-  
-  display: flex;
-  font-weight: bold;
-}
-.tabla-transferir thead tr {
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
+.tabla-transferir,
+.thead,
+.tbody {
   width: 100%;
-}
-
-/*  .tabla-transferir tbody{
-
-  background-color: #a112be;
-  display: flex;
+  height: 10px;
   
-  flex-direction: column; 
-} */
+}
+.thead tr td {
+  width: 200px;
+  border: solid 1px white;
+}
 
-.tabla-transferir tbody tr {
-  flex-direction: column;
+.tr td {
+  width: 200px;
 }
-tr,
-td {
-  width: 20%;
-}
-/* .tabla-transferir tbody td{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background-color: #be3412;
-  border: solid 3px;
-}  */
-/* 5) Consultar saldo - Xiomara */
+
 .consultar {
   width: 50%;
 }
