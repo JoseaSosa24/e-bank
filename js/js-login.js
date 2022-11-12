@@ -138,7 +138,7 @@ function intentosAgotados(contError) {
         formulario.classList.add('invisible');
         document.querySelector('.intentos-agotados').classList.remove('invisible');
         sectionAgotados.textContent = "La aplicación se ha cerrado porque ha agotado sus intentos. :( -Error Capa 8"
-        document.querySelector('#intento-nuevo').textContent=('Intente de nuevo dando click aquí')
+        document.querySelector('#intento-nuevo').textContent=('Intente de nuevo')
     }
 };
 
@@ -166,9 +166,9 @@ btnIniciar.addEventListener('click', (event) => {
     }
 
 });
-
+const formReturn=document.querySelector("#formReturn")
 const intentoNuevo = document.querySelector('#intento-nuevo');
-intentoNuevo.addEventListener((e) => {
+formReturn.addEventListener("submit", (e) => {
     document.querySelector('.intentos-agotados').classList.add('invisible');
     formulario.classList.remove('invisible');
 
