@@ -6,57 +6,93 @@
   font-family: "JetBrains Mono", monospace;
 }
 
+body,
+main {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(#4986d0, #1254be) !important;
+}
+
 .invisible {
   display: none !important;
 }
 .principal {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  background: linear-gradient(#4986d0, #1254be) !important;
+  gap: 10%;
+  /* background: linear-gradient(#4986d0, #1254be) !important; */
 }
 .login {
   margin-top: 0px;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 20px;
+  height: 90%;
   width: 50%;
+  /* margin-top:-10%; */
 }
 .login-form {
-  margin-top: 0%;
+  /* border: solid 1px black; */
+  width: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 20px;
-  width: 0%;
-  height: 50vh;
 }
 .login-form input {
-  border-radius: 50px;
+  border-radius: 20px;
   text-align: center;
-  width: 500px;
-  height: 75px;
+  width: 100%;
+  height: 70px;
   border: white 4px solid;
   outline: none;
   margin-bottom: 20px;
   outline: none;
   font-size: 22px;
 }
+
+.btn-iniciar {
+  background-color: #5ce1e6;
+  font-weight: bold;
+  width: 35%;
+  height: 70px;
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: white 4px solid;
+  margin-top: 20px;
+  border: 3px solid #c7f8f9;
+  border-radius: 20px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.btn-iniciar:hover {
+  /* background-color: #5bc9ff; */
+  color: black;
+  /* border: white 4px solid; */
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  border: 5px solid #6ab1c9;
+}
+
 .intentos-agotados {
   /* background-color: aquamarine; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20%;
+  margin: 0%;
+  /* margin-bottom: 20%; */
 }
 
 .intentos-agotados h1 {
@@ -65,61 +101,38 @@
 }
 .intentos-agotados a {
   font-size: 150%;
-  color: #5bc9ff;
+  color: #5ce1e6;
   /* outline: none; */
   text-decoration: none;
-  /* background-color: #4986d0; */
 }
 
-.intentos-agotados a::placeholder {
-  color: white !important;
+.intentos-agotados a:hover {
+  /* color: white !important; */
+  /* border: 5px; */
+  color: #40e0e6;
+  font-weight: bold;
+  text-decoration: underline !important;
 }
 
 .mensaje-error {
-  font-size: 15px;
+  font-size: 18px;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 500px;
-  height: 50px;
+  width: 100%;
+  height: 12%;
 }
 
 .logo {
   text-align: center;
-  margin-top: 10%;
-  margin-bottom: 0%;
+  margin-top: 9%;
+  /* margin-bottom: 1%; */
 }
-
-/* #usuario::placeholder{
-  text-align: center;
-  color: grey;
-  font-size: 20px;
-
-} */
 
 .login-form input::placeholder {
   text-align: center;
   color: grey;
-  font-size: 20px;
-}
-/* #contrasena::placeholder{
-  text-align: center;
-  color: grey;
-  font-size: 20px;
-} */
-.btn-iniciar {
-  background-color: #5ce1e6;
+  font-size: 22px;
   font-weight: bold;
-  border-radius: 18px;
-  width: 200px;
-  height: 80px;
-  color: white;
-  font-size: 20px;
-  border: white 4px solid;
-  margin-top: 20px;
-}
-.btn-iniciar:hover {
-  background-color: #5bc9ff;
-  color: black;
-  border: white 4px solid;
+  opacity: 50%;
 }

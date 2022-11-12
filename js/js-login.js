@@ -50,13 +50,13 @@ function mensajeError(mensaje) {
 }
 
 function mostrandoCorrecto(campo) {
-    campo.classList.remove("border", "border-4", "border-danger");
-    campo.classList.add("border", "border-4", "border-success");
+    campo.classList.remove("border", "border-3", "border-danger");
+    campo.classList.add("border", "border-3", "border-success");
 }
 
 function mostrandoIncorrecto(campo) {
-    campo.classList.remove("border", "border-4", "border-success");
-    campo.classList.add("border", "border-4", "border-danger");
+    campo.classList.remove("border", "border-3", "border-success");
+    campo.classList.add("border", "border-3", "border-danger");
 }
 
 function devolverPosicion() {
@@ -103,8 +103,6 @@ const validarFormulario = (event) => {
             break;
         case "contrasena":
             validarExpresiones(event, expresionRegular.password, contrasena, "pass");
-            break;
-        default:
             break;
     }
 };
