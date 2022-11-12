@@ -44,12 +44,6 @@ body {
 }
 
 /* 3) Retirar dinero - juliana */
-.retirar {
-  background-color: blueviolet;
-  margin: 1%;
-  width: 90%;
-  height: 70%;
-}
 
 /* 4) Transferir dinero - Xiomara */
 .transferir {
@@ -121,7 +115,6 @@ table {
 .tbody {
   width: 100%;
   height: 10px;
-  
 }
 .thead tr td {
   width: 200px;
@@ -192,7 +185,7 @@ table {
   width: 50%;
   height: 40%;
   background: transparent;
-  color: white;
+
   font-size: medium;
   border-radius: 20px;
   border: 4px solid white;
@@ -201,10 +194,110 @@ table {
 
 .inferior {
   padding: 2%;
-  /* margin-top: 8%; */
+ 
 }
 
 .invisible {
   display: none !important;
 }
+.botones-trasacciones button {
+  background: transparent;
+  border: none;
+  margin: 50px;
+}
+.superior {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.boton-salir {
+  background: transparent;
+  border: none;
+}
 
+.vista-principal-titulo {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.retirar {
+  display: flex;
+  gap: 7%;
+  justify-content: center;
+  flex-direction: row;
+  width: 1000px;
+  padding: 2%;
+  border-radius: 15px;
+}
+
+.form-retirar {
+  text-align: center;
+  width: 50%;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  font-size: large;
+  border-radius: 20px;
+  border: 4px solid white;
+}
+.form-retirar input {
+  border: 2px solid white;
+  background: transparent;
+  width: 100%;
+  border-radius: 20px;
+  text-align: center;
+  background: transparent;
+  border: 3px solid white;
+  outline: none;
+  height: 45px;
+}
+.form-retirar input::placeholder {
+  color: white;
+}
+.form-retirar button {
+  margin-top: 2%;
+  margin-bottom: 10%;
+  font-size: 90%;
+  height: 45px;
+  width: 50%;
+  border-radius: 20px;
+  text-align: center;
+  background: transparent;
+  border: 3px solid white;
+}
+.form-retirar button:hover {
+  background-color: white;
+  color: black;
+}
+.tabla-retirar {
+  text-align: center;
+  width: 35%;
+  padding: 1%;
+  font-size: large;
+  border-radius: 20px;
+  border: 4px solid white;
+  border-radius: 50px;
+}
+.tabla-retirar,
+.thead,
+.tbody {
+  width: 50%;
+  height: 10px;
+}
+.thead-retirar tr td {
+  width: 200px;
+  border: solid 1px white;
+}
+
+
+
+/* .tabla{
+  width: 50%;
+  height: 100%;
+  margin-left: 150px;
+  border-radius: 60%;
+  border: 2px solid white;

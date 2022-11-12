@@ -20,7 +20,7 @@
         <header class="superior" id="superior">
             <form action="../login/login.html">
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" class="boton-salir" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <img src="../img/Salir.png" alt="img-salir">
                     <p>Salir</p> 
                 </button>
@@ -50,11 +50,11 @@
 
         <!-- VISTA PRINCIPAL-->
         <section class="vista-principal" id="vista-principal">
-            <section class="titulo" id="titulo">
-                <h1>Selecciona tu transacción</h1>
+            <section class="vista-principal-titulo" id="titulo">
+                <h3>Selecciona tu transacción</h3>
             </section>
             <section class="botones-trasacciones" id="botones-trasacciones">
-                <button id="boton-retirar">
+                <button class="boton-transferir" id="boton-retirar">
                     <img src="../img/RetirarDinero.png" alt="Retirar dinero" >
                     <p>Retirar dinero</p>
                 </button>
@@ -79,12 +79,12 @@
                  <section class="retirar" id="retirar">
                     <form class="form-retirar" id="form-retirar">
                         <p id="parrafo"></p>
-                        <input id="valor-retirar" type="number" placeholder="Digita el valor a retirar">
-                        <input class="btn-retirar" id="btn-retirar" class="btn-retirar" type="button"
-                            value="Retirar dinero">
+                        <input class="valor-retirar" id="valor-retirar" type="number" placeholder=" valor a retirar">
+                        <button class="btn-retirar" id="btn-retirar" class="btn-retirar" type="button"
+                       >Retirar dinero</button> </button>
                     </form>
-                    <table class="tabla" id=" tabla">
-                        <thead>
+                    <table class="tabla-retirar" id=" tabla-retirar">
+                        <thead class="thead-retirar">
                             <tr>
                                 <td>Fecha</td>
                                 <td>Valor</td>
