@@ -23,6 +23,11 @@ const usuarios = [
         user: "NataMafla",
         pass: "2468",
         saldo: 1500000
+    },
+    {
+        user: "julirios",
+        pass: "abc123",
+        saldo: 15000000
     }
 ];
 
@@ -43,8 +48,10 @@ const contrasena = document.querySelector('#contrasena');
 
 function mensajeError(mensaje) {
     const mensajeError = document.querySelector("#mensaje-error");
-    mensajeError.classList.add('text-white', 'fw-bold')
+    const iconoError = document.querySelector("#mensaje-error img");
+    mensajeError.classList.add('text-white', 'fw-bold');
     mensajeError.textContent = mensaje;
+    // iconoError.src = "../img/icon/incorrecto.png";
 }
 
 function mostrandoCorrecto(campo) {
