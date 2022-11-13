@@ -27,6 +27,11 @@ let usuarios = [
     pass: "2468",
     saldo: 1500000,
   },
+  {
+    user: "julirios",
+    pass: "abc123",
+    saldo: 1500000,
+  }
 ];
 
 const expresionRegular = {
@@ -78,12 +83,14 @@ botonRetirar.addEventListener("click", () => {
   accionConsignar.classList.add("invisible");
   document.querySelectorAll("p").value = ""
   document.querySelector("#boton-retirar a").click();
+  limpiarAlertas()
 
 });
 
 const btnRetirar = document.querySelector("#btn-retirar");
-let valorRetirar = document.querySelector("#valor-retirar");
-let parrafo = document.querySelector("#parrafo");
+
+// let mensajeAlerta = document.querySelector("#alerta");
+
 let saldoNuevo = 0;
 
 const tiempoTranscurrido = Date.now();
@@ -103,14 +110,18 @@ function agregarRetiro() {
 }
 
 btnRetirar.addEventListener("click", () => {
-  parrafo.innerHTML = "";
-  valorRetirar = document.querySelector("#valor-retirar");
+  const valorRetirar = document.querySelector("#valor-retirar");
+  const alertaRetirar = document.querySelector("#alerta-retirar");
+  const iconoAlerta = document.querySelector("#retirar-mensaje img");
+  alertaRetirar.innerHTML = "";
   if (usuarios[1].saldo < valorRetirar.value) {
-    parrafo.innerHTML = "Saldo insuficiente";
+    alertaRetirar.innerHTML = "Saldo insuficiente";
+    iconoAlerta.src = "./../img/icon/incorrecto.png";
   } else if (valorRetirar.value < 20000) {
-    parrafo.innerHTML = "Cantidad mínima requerida de $ 20000";
+    alertaRetirar.innerHTML = "Retiro mínimo de $ 20000";
+    iconoAlerta.src = "./../img/icon/incorrecto.png";
   } else if (valorRetirar.value.length == 0) {
-    parrafo.innerHTML = "Operación inválida";
+    alertaRetirar.innerHTML = "Operación inválida";
   } else {
     saldoNuevo = usuarios[1].saldo - valorRetirar.value;
     usuarios[1].saldo = saldoNuevo;
@@ -118,7 +129,12 @@ btnRetirar.addEventListener("click", () => {
     console.log(saldoGeneral.value);
     agregarRetiro();
     valorRetirar.value = "";
-    parrafo.innerHTML = "Retiro exitoso";
+    alertaRetirar.innerHTML = "Retiro exitoso";
+    iconoAlerta.src = "./../img/icon/correcto.png";
+    setTimeout(() => {
+      alertaRetirar.innerHTML = "";
+      iconoAlerta.src = "";
+    }, 4000);
   }
 });
 
@@ -143,11 +159,13 @@ botonTransferir.addEventListener("click", () => {
   accionTransferir.classList.remove("invisible");
   accionConsultar.classList.add("invisible");
   accionConsignar.classList.add("invisible");
-  document.querySelectorAll("p").value = ""
+  limpiarAlertas();
 });
+
+
 const btnTransferir = document.querySelector("#btn-transferir");
 let valorTransferir;
-let parrafoTransferir = document.querySelector("#error-transferir");
+// let parrafoTransferir = document.querySelector("#alerta-transferir");
 // let parrafo = document.querySelector("#parrafo")
 function agregarTransferencia() {
   const tr = document.createElement("tr");
@@ -176,31 +194,46 @@ btnTransferir.addEventListener("click", () => {
   const transferirCorreo = document.querySelector("#correo");
   const transferirCuenta = document.querySelector("#cuenta");
   const formularioTransferir = document.querySelector("#form-transferir")
-
-  parrafoTransferir.innerHTML = "";
+  const alertaTransferir = document.querySelector('#alerta-transferir');
+  const iconoAlerta = document.querySelector('#transferir-mensaje img');
+  alertaTransferir.innerHTML = "";
   valorTransferir = document.querySelector("#monto");
   if (!expresionRegular.nombre.test(transferirNombre.value)) {
-    parrafoTransferir.innerHTML = "Nombre inválido";
+    alertaTransferir.innerHTML = "Nombre inválido";
+    iconoAlerta.src = "../img/icon/incorrecto.png";
+    // transferirNombre.classList.add("bg-danger","bg-opacity-75");
   } else if (!expresionRegular.correo.test(transferirCorreo.value)) {
-    parrafoTransferir.innerHTML = "Correo inválido";
+    alertaTransferir.innerHTML = "Correo inválido";
+    iconoAlerta.src = "../img/icon/incorrecto.png";
+    // transferirCorreo.classList.add("bg-danger","bg-opacity-75");
   } else if (!expresionRegular.cuenta.test(transferirCuenta.value)) {
-    parrafoTransferir.innerHTML = "Número de cuenta inválido";
+    alertaTransferir.innerHTML = "Número de cuenta inválido";
+    iconoAlerta.src = "../img/icon/incorrecto.png";
+    // transferirCuenta.classList.add("bg-danger","bg-opacity-75");
   } else if (usuarios[1].saldo < valorTransferir.value) {
-    parrafoTransferir.innerHTML = "Saldo insuficiente";
-    console.log("Saldo insuficiente");
+    alertaTransferir.innerHTML = "Saldo insuficiente";
+    iconoAlerta.src = "../img/icon/incorrecto.png";
+    // valorTransferir.classList.add("bg-danger","bg-opacity-75");
   } else if (valorTransferir.value < 1000) {
-    parrafoTransferir.innerHTML = "Monto inválido, ingresar valor mayor a 1000";
-    console.log("Operacion invalida");
+    alertaTransferir.innerHTML = "Monto inválido";
+    iconoAlerta.src = "../img/icon/incorrecto.png";
+    // valorTransferir.classList.add("bg-danger","bg-opacity-75");
   }
   else {
     saldoNuevo = usuarios[1].saldo - parseFloat(valorTransferir.value);
     usuarios[1].saldo = saldoNuevo;
     saldoGeneral.value = usuarios[1].saldo;
     console.log(saldoGeneral.value);
-    parrafoTransferir.innerHTML = "Operacion Exitosa";
     agregarTransferencia();
+    alertaTransferir.innerHTML = "Operación Exitosa";
+    iconoAlerta.src = "../img/icon/correcto.png";
     formularioTransferir.reset()
+    setTimeout(() => {
+      alertaTransferir.innerHTML = "";
+      iconoAlerta.src = "";
+    }, 4000);
   }
+
 });
 
 botonConsultar.addEventListener("click", (e) => {
@@ -226,7 +259,7 @@ botonConsultar.addEventListener("click", (e) => {
   accionTransferir.classList.add("invisible");
   accionConsultar.classList.remove("invisible");
   accionConsignar.classList.add("invisible");
-  document.querySelectorAll('p').value = ""
+  limpiarAlertas()
 });
 botonConsignar.addEventListener("click", () => {
   // reducirElementos();
@@ -249,24 +282,42 @@ botonConsignar.addEventListener("click", () => {
   accionTransferir.classList.add("invisible");
   accionConsultar.classList.add("invisible");
   accionConsignar.classList.remove("invisible");
-  document.querySelectorAll("p").value = ""
+  limpiarAlertas();
 });
 
 const btnConsignar = document.querySelector("#btn-consignar");
-let valorConsignar;
-let parrafoConsignar = document.querySelector("#error-consignar");
-// let parrafo = document.querySelector("#parrafo")
 btnConsignar.addEventListener("click", () => {
-  parrafoConsignar.innerHTML = "";
-  valorConsignar = document.querySelector("#valor-cosignar");
+  const alertaConsignar = document.querySelector("#alerta-consignar");
+  const iconoAlerta = document.querySelector("#consignar-mensaje img");
+  const valorConsignar = document.querySelector("#valor-cosignar");
+  alertaConsignar.innerHTML = "";
+
   if (valorConsignar.value < 1000) {
-    parrafoConsignar.innerHTML = "Consignación mínima de $ 1000";
+    alertaConsignar.innerHTML = "Consignación mínima de $ 1000";
+    iconoAlerta.src = "./../img/icon/incorrecto.png";
   } else {
     saldoNuevo = parseFloat(valorConsignar.value) + usuarios[1].saldo;
     usuarios[1].saldo = saldoNuevo;
     saldoGeneral.value = usuarios[1].saldo;
     console.log(saldoGeneral.value);
-    parrafoConsignar.innerHTML = "Consignación exitosa";
+    alertaConsignar.innerHTML = "Consignación exitosa";
+    iconoAlerta.src = "./../img/icon/correcto.png";
     valorConsignar.value = "";
+    setTimeout(() => {
+      alertaConsignar.innerHTML = "";
+      iconoAlerta.src = "";
+    }, 4000);
   }
 });
+
+function limpiarAlertas() {
+  const parrafos = document.querySelectorAll("#transacciones p");
+  parrafos.forEach((parrafo) => {
+    parrafo.innerHTML = "";
+  });
+
+  const imgs = document.querySelectorAll("#transacciones img");
+  imgs.forEach((img) => {
+    img.src = "";
+  })
+}

@@ -20,8 +20,7 @@
         <header class="superior" id="superior">
             <form action="../login/login.html">
                 <!-- Button trigger modal -->
-                <button type="button" class="boton-salir m-2" data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop">
+                <button type="button" class="boton-salir m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <img src="../img/Salir.png" alt="img-salir">
                     <p>Salir</p>
                 </button>
@@ -59,11 +58,11 @@
                 <h2>Selecciona tu transacción</h2>
             </section>
             <section class="botones-transacciones" id="botones-trasacciones">
-                    <button class="boton-retirar" id="boton-retirar">
-                        <img src="../img/RetirarDinero.png" alt="Retirar dinero">
-                        <a href="#btn-retirar"></a>
-                        <p>Retirar dinero</p>
-                    </button>
+                <button class="boton-retirar" id="boton-retirar">
+                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
+                    <a href="#btn-retirar"></a>
+                    <p>Retirar dinero</p>
+                </button>
                 <button id="boton-transferir">
                     <img src="../img/TransferirDinero.png" alt="Transferir dinero">
                     <a href="#transferir"></a>
@@ -87,7 +86,10 @@
                 <!-- RETIRAR -->
                 <section class="retirar" id="retirar">
                     <form class="form-retirar" id="form-retirar">
-                        <p id="parrafo"></p>
+                        <section class="retirar-mensaje" id="retirar-mensaje">
+                            <img src="" class="" alt="">
+                            <p id="alerta-retirar" class="alerta alerta-retirar"></p>
+                        </section>
                         <input class="valor-retirar" id="valor-retirar" type="number" placeholder="Valor a retirar">
                         <button class="btn-retirar" id="btn-retirar" type="button">Retirar dinero</button>
                     </form>
@@ -100,11 +102,11 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>25-07-2022</td>
+                                <td>25/07/2022</td>
                                 <td>10000</td>
                             </tr>
                             <tr>
-                                <td>30-30-2022</td>
+                                <td>30/30/2022</td>
                                 <td>5000</td>
                             </tr>
                         </tbody>
@@ -114,10 +116,14 @@
                 <!-- TRANSFERIR -->
                 <section class="transferir" id="transferir">
                     <form class="form-transferir" id="form-transferir">
+                        <section class="transferir-mensaje" id="transferir-mensaje">
+                            <img src="" class="" alt="">
+                            <p id="alerta-transferir" class="alerta alerta-transferir"></p>
+                        </section>
                         <p id="error-transferir"></p>
-                        <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text">
+                        <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text" minlength="" maxlength="20" >
                         <input id="correo" class="correo" name="correo" placeholder="Correo electónico" type="email">
-                        <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="number">
+                        <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="text"  maxlength="11"  onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
                         <input id="monto" class="monto" name="monto" placeholder="Monto a transferir" type="number">
                         <!-- <input id="fecha" class="fecha" name="fecha" placeholder="Fecha" type="date"> -->
                         <button id="btn-transferir" class="btn-transferir" name="btn-transferir" type="button">
@@ -139,30 +145,16 @@
                                 <td>Juan</td>
                                 <td>juan3@gmail.com</td>
                                 <td>012336784</td>
-                                <td>200</td>
-                                <td>01-06-2022</td>
+                                <td>20000</td>
+                                <td>01/06/2022</td>
                             </tr>
 
                             <tr>
                                 <td>Juan </td>
                                 <td>juan3@gmail.com</td>
                                 <td>012336784</td>
-                                <td>200000</td>
-                                <td>01-06-2022</td>
-                            </tr>
-                            <tr>
-                                <td>Juan</td>
-                                <td>juan3@gmail.com</td>
-                                <td>012336784</td>
-                                <td>20000</td>
-                                <td>01-06-2022</td>
-                            </tr>
-                            <tr>
-                                <td>Juan </td>
-                                <td>juan3@gmail.com</td>
-                                <td>012336784</td>
-                                <td>20000</td>
-                                <td>01-06-2022</td>
+                                <td>400000</td>
+                                <td>01/06/2022</td>
                             </tr>
                         </tbody>
                     </table>
@@ -173,14 +165,15 @@
                 <section class="consultar" id="consultar">
                     <h3>Tu saldo actual es de: </h3>
                     <input id="saldo-general" type="text" disabled>
-
-
                 </section>
 
                 <!-- CONSIGNAR -->
                 <section class="consignar" id="consignar">
                     <form class="form-consignar" id="form-consignar">
-                        <p id="error-consignar"></p>
+                        <section class="consignar-mensaje" id="consignar-mensaje">
+                            <img src="" class="" alt="">
+                            <p id="alerta-consignar" class="alerta alerta-consignar"></p>
+                        </section>
                         <input id="valor-cosignar" type="number" placeholder="Digita el valor a consignar">
                         <button id="btn-consignar" class="btn-consignar" type="button">Consignar</button>
                     </form>
