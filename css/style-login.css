@@ -118,6 +118,39 @@ main {
   transition: all 0.35s ease;
 }
 
+.intentos-agotados a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 14pt;
+  color: white;
+  /* outline: none; */
+  text-decoration: none;
+  outline: none;
+  background-color: #5ce1e6;
+  border-radius: 15px;
+  border: solid 4px;
+  border-color: white;
+  width: 220px;
+  height: 60px;
+  -webkit-text-stroke: 1px white;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.intentos-agotados a:hover {
+  /* color: white !important; */
+  /* border: 5px; */
+  color: black;
+  font-weight: bold;
+  font-size: 15pt;
+  /* background-color: white; */
+  border-color: #5ce1e6;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
 .intentos-agotados button:hover {
   /* color: white !important; */
   /* border: 5px; */
@@ -150,5 +183,4 @@ main {
   font-size: 22px;
   font-weight: bold;
   opacity: 50%;
-  
 }
