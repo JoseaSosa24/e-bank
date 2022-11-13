@@ -54,22 +54,22 @@ function mensajeError(mensaje) {
     // iconoError.src = "../img/icon/incorrecto.png";
 }
 
-function mostrandoCorrecto(campo) {
+export function mostrandoCorrecto(campo) {
     campo.classList.remove("border", "border-3", "border-danger");
     campo.classList.add("border", "border-3", "border-success");
 }
 
-function mostrandoIncorrecto(campo) {
+export function mostrandoIncorrecto(campo) {
     campo.classList.remove("border", "border-3", "border-success");
     campo.classList.add("border", "border-3", "border-danger");
 }
 
-function devolverPosicion() {
+export function devolverPosicion() {
     // let sw = false;
     for (let i = 0; i < usuarios.length; i++) {
         if (usuario.value === usuarios[i].user && contrasena.value === usuarios[i].pass) {
             // console.log("Usuario: " + usuario.value + "=" + usuarios[i].user + "Pass:" + contrasena.value + "=" + usuarios[i].pass);
-            return usuarios[i].user;
+            return usuarios[i];
         } else {
             // console.log("Usuario: " + usuario.value + "!=" + usuarios[i].user + " Pass:" + contrasena.value + "!=" + usuarios[i].pass);
         }
@@ -151,7 +151,7 @@ btnIniciar.addEventListener('click', (event) => {
     if (campos.user == true && campos.pass == true) {
         event.preventDefault();
         if (validarCredenciales() == true) {
-            formulario.action = ('./../vista-principal/index.html');
+            formulario.action = ('../index.html');
             formulario.submit();
             limpiarCampos();
         } else {
