@@ -61,8 +61,6 @@ const botonConsultar = document.querySelector("#boton-consultar");
 const botonConsignar = document.querySelector("#boton-consignar");
 
 
-
-
 botonRetirar.addEventListener("click", () => {
   // reducirElementos();
   // accionTitulo.textContent = ('Usted seleccionó RETIRAR DINERO')
@@ -117,8 +115,8 @@ btnRetirar.addEventListener("click", () => {
   if (usuarios[1].saldo < valorRetirar.value) {
     alertaRetirar.innerHTML = "Saldo insuficiente";
     iconoAlerta.src = "./../img/icon/incorrecto.png";
-  } else if (valorRetirar.value < 20000) {
-    alertaRetirar.innerHTML = "Retiro mínimo de $ 20000";
+  } else if (valorRetirar.value < 10000) {
+    alertaRetirar.innerHTML = "Retiro mínimo de $ 10000";
     iconoAlerta.src = "./../img/icon/incorrecto.png";
   } else if (valorRetirar.value.length == 0) {
     alertaRetirar.innerHTML = "Operación inválida";
@@ -139,7 +137,6 @@ btnRetirar.addEventListener("click", () => {
 });
 
 botonTransferir.addEventListener("click", () => {
-  // reducirElementos();
   document.querySelector("#boton-transferir a").click();
   acciones.classList.remove("invisible");
   document
