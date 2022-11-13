@@ -1,3 +1,26 @@
+// window.onload = ()=> {
+//   document.querySelector('#img-cargando').src='img/logo_ebank.png';
+//   document.querySelector('#cargando').textContent='Cargando...'
+//   setTimeout(() => {
+//     // document.querySelector('#contenedor').classList.add('invisible');
+//     // document.querySelector('main').classList.remove('invisible');
+//     $('#onload').fadeOut();
+//     $('#principal').removeClass('invisible');
+//     $('#contenedor').addClass('invisible');
+//   }, 3000);
+
+// }
+
+window.onload = () => {
+  document.querySelector('#img-cargando').src = '../img/logo_ebank.png';
+  setTimeout(() => {
+    $('#principal').removeClass('invisible');
+    $('#contenedor').addClass('invisible');
+  }, 200);
+
+  // ('#onload').fadeOut();
+}
+
 let saldo = 50000;
 let saldoGeneral = document.querySelector("#saldo-general");
 
@@ -54,6 +77,8 @@ ocultarAcciones();
 function ocultarAcciones() {
   acciones.classList.add("invisible");
 }
+
+
 
 const botonRetirar = document.querySelector("#boton-retirar");
 const botonTransferir = document.querySelector("#boton-transferir");
@@ -113,17 +138,17 @@ btnRetirar.addEventListener("click", () => {
   const iconoAlerta = document.querySelector("#retirar-mensaje img");
   alertaRetirar.innerHTML = "";
   if (usuarios[1].saldo < valorRetirar.value) {
+    iconoAlerta.src = "./../img/icon/incorrecto.png";
     alertaRetirar.innerHTML = "Saldo insuficiente";
-    iconoAlerta.src = "./../img/icon/incorrecto.png";
   } else if (valorRetirar.value < 10000) {
-    alertaRetirar.innerHTML = "Retiro mínimo de $ 10000";
     iconoAlerta.src = "./../img/icon/incorrecto.png";
+    alertaRetirar.innerHTML = "Retiro mínimo de $ 10000";
   } else if (valorRetirar.value.length == 0) {
     alertaRetirar.innerHTML = "Operación inválida";
   } else {
     saldoNuevo = usuarios[1].saldo - valorRetirar.value;
     usuarios[1].saldo = saldoNuevo;
-    saldoGeneral.value = usuarios[1].saldo;
+    // saldoGeneral.value = usuarios[1].saldo;
     console.log(saldoGeneral.value);
     agregarRetiro();
     valorRetirar.value = "";
@@ -200,20 +225,20 @@ btnTransferir.addEventListener("click", () => {
     iconoAlerta.src = "../img/icon/incorrecto.png";
     // transferirNombre.classList.add("bg-danger","bg-opacity-75");
   } else if (!expresionRegular.correo.test(transferirCorreo.value)) {
-    alertaTransferir.innerHTML = "Correo inválido";
     iconoAlerta.src = "../img/icon/incorrecto.png";
+    alertaTransferir.innerHTML = "Correo inválido";
     // transferirCorreo.classList.add("bg-danger","bg-opacity-75");
   } else if (!expresionRegular.cuenta.test(transferirCuenta.value)) {
-    alertaTransferir.innerHTML = "Número de cuenta inválido";
     iconoAlerta.src = "../img/icon/incorrecto.png";
+    alertaTransferir.innerHTML = "Número de cuenta inválido";
     // transferirCuenta.classList.add("bg-danger","bg-opacity-75");
   } else if (usuarios[1].saldo < valorTransferir.value) {
-    alertaTransferir.innerHTML = "Saldo insuficiente";
     iconoAlerta.src = "../img/icon/incorrecto.png";
+    alertaTransferir.innerHTML = "Saldo insuficiente";
     // valorTransferir.classList.add("bg-danger","bg-opacity-75");
   } else if (valorTransferir.value < 1000) {
-    alertaTransferir.innerHTML = "Monto inválido";
     iconoAlerta.src = "../img/icon/incorrecto.png";
+    alertaTransferir.innerHTML = "Monto inválido";
     // valorTransferir.classList.add("bg-danger","bg-opacity-75");
   }
   else {
@@ -222,8 +247,8 @@ btnTransferir.addEventListener("click", () => {
     saldoGeneral.value = usuarios[1].saldo;
     console.log(saldoGeneral.value);
     agregarTransferencia();
-    alertaTransferir.innerHTML = "Operación Exitosa";
     iconoAlerta.src = "../img/icon/correcto.png";
+    alertaTransferir.innerHTML = "Operación Exitosa";
     formularioTransferir.reset()
     setTimeout(() => {
       alertaTransferir.innerHTML = "";
@@ -295,7 +320,7 @@ btnConsignar.addEventListener("click", () => {
   } else {
     saldoNuevo = parseFloat(valorConsignar.value) + usuarios[1].saldo;
     usuarios[1].saldo = saldoNuevo;
-    saldoGeneral.value = usuarios[1].saldo;
+    // saldoGeneral.value = usuarios[1].saldo;
     console.log(saldoGeneral.value);
     alertaConsignar.innerHTML = "Consignación exitosa";
     iconoAlerta.src = "./../img/icon/correcto.png";

@@ -1,30 +1,42 @@
 const usuarios = [
     {
+        nombre: "José",
+        apellido: "Sosa",
         user: "josesosa",
         pass: "12345",
         saldo: 4000000
     },
     {
+        nombre: "Susana",
+        apellido: "",
         user: "lennysusana",
         pass: "54321",
         saldo: 3000000
     },
     {
+        nombre: "Santiago",
+        apellido: "Misas",
         user: "misas_mouse",
         pass: "2468",
         saldo: 2500000
     },
     {
+        nombre: "Xiomara",
+        apellido: "Guzman",
         user: "XiomiGuzman",
         pass: "2468",
         saldo: 2300000
     },
     {
+        nombre: "Natalia",
+        apellido: "Mafla",
         user: "NataMafla",
         pass: "2468",
         saldo: 1500000
     },
     {
+        nombre: "Juliana",
+        apellido: "Rios",
         user: "julirios",
         pass: "abc123",
         saldo: 15000000
@@ -64,12 +76,13 @@ export function mostrandoIncorrecto(campo) {
     campo.classList.add("border", "border-3", "border-danger");
 }
 
-export function devolverPosicion() {
+export function devolverNombre() {
     // let sw = false;
+    let cadena = "";
     for (let i = 0; i < usuarios.length; i++) {
-        if (usuario.value === usuarios[i].user && contrasena.value === usuarios[i].pass) {
+        if (usuario.value === usuarios[i].user) {
             // console.log("Usuario: " + usuario.value + "=" + usuarios[i].user + "Pass:" + contrasena.value + "=" + usuarios[i].pass);
-            return usuarios[i];
+            return usuarios[i].nombre + " " + usuarios[i].apellido;
         } else {
             // console.log("Usuario: " + usuario.value + "!=" + usuarios[i].user + " Pass:" + contrasena.value + "!=" + usuarios[i].pass);
         }
@@ -80,7 +93,7 @@ function validarExpresiones(event, expresion, campo, nombreCampo) {
     if (expresion.test(event.target.value)) {//Validando la expresión regular
         console.log("Validación exitosa");
         mostrandoCorrecto(campo);
-        console.log(devolverPosicion());
+        console.log(devolverNombre());
         campos[nombreCampo] = true;
 
     } else {
@@ -144,6 +157,25 @@ function intentosAgotados(contError) {
         intentoNuevo.textContent = ('Intente de nuevo');
     }
 };
+function iniciandoSesion() {
+    document.querySelector('main').classList.add('invisible','hidden');
+    document.querySelector('#contenedor').classList.remove('invisible');
+    formulario.action = ('../index.html');
+    document.querySelector('#img-cargando').src = '../img/logo_ebank.png';
+    document.querySelector('#cargando').textContent = 'Iniciando Sesión...';
+    setTimeout(() => {
+        document.querySelector('#cargando').textContent = 'Danos un momento...Estamos preparando todo para ti';
+        setTimeout(() => {
+            document.querySelector('#cargando').textContent = '¡Bienvenido a tu banco ' + devolverNombre() + '! :)';
+            setTimeout(() => {
+                formulario.submit();
+                limpiarCampos();
+            }, 2000);
+        }, 2500)
+
+    }, 2000);
+
+}
 
 var contarErrores = 3;
 btnIniciar.addEventListener('click', (event) => {
@@ -151,9 +183,9 @@ btnIniciar.addEventListener('click', (event) => {
     if (campos.user == true && campos.pass == true) {
         event.preventDefault();
         if (validarCredenciales() == true) {
-            formulario.action = ('../index.html');
-            formulario.submit();
-            limpiarCampos();
+            // formulario.action = ('../index.html');
+            // formulario.submit();
+            iniciandoSesion();
         } else {
             event.preventDefault();
             contarErrores--;
