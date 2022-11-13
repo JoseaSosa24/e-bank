@@ -26,8 +26,6 @@ const usuarios = [
     }
 ];
 
-
-
 const expresionRegular = {
     usuario: /^[a-zA-Z0-9\_]{4,16}$/, // Letras, numeros, guion_bajo
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
@@ -127,18 +125,16 @@ function validarCredenciales() {
 }
 
 
-
-
 const btnIniciar = document.querySelector('#btn-iniciar');
 const formulario = document.querySelector('#login-form');
-
+const intentoNuevo = document.querySelector('#intento-nuevo');
 function intentosAgotados(contError) {
     let sectionAgotados = document.querySelector('#agotados h1');
     if (parseInt(contError) === 0) {
         formulario.classList.add('invisible');
         document.querySelector('.intentos-agotados').classList.remove('invisible');
         sectionAgotados.textContent = "La aplicación se ha cerrado porque ha agotado sus intentos. :( -Error Capa 8"
-        document.querySelector('#intento-nuevo').textContent=('Intente de nuevo')
+        intentoNuevo.textContent = ('Intente de nuevo');
     }
 };
 
@@ -166,11 +162,4 @@ btnIniciar.addEventListener('click', (event) => {
     }
 
 });
-const formReturn=document.querySelector("#formReturn")
-const intentoNuevo = document.querySelector('#intento-nuevo');
-formReturn.addEventListener("submit", (e) => {
-    document.querySelector('.intentos-agotados').classList.add('invisible');
-    formulario.classList.remove('invisible');
 
-
-});

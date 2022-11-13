@@ -34,7 +34,7 @@ const expresionRegular = {
   nombre: /^[a-zA-ZÀ-ÿ\s]{3,20}$/, // Letras y espacios, pueden llevar acentos.
   password: /^.{4,12}$/, // 4 a 12 digitos
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  cuenta:  /^\d{11}$/
+  cuenta: /^\d{11}$/
 };
 
 const acciones = document.querySelector("#transacciones");
@@ -55,17 +55,14 @@ const botonTransferir = document.querySelector("#boton-transferir");
 const botonConsultar = document.querySelector("#boton-consultar");
 const botonConsignar = document.querySelector("#boton-consignar");
 
-function calcularSaldo(valor, saldo) {
-  return saldo - valor;
-}
+
+
 
 botonRetirar.addEventListener("click", () => {
   // reducirElementos();
   // accionTitulo.textContent = ('Usted seleccionó RETIRAR DINERO')
   acciones.classList.remove("invisible");
-  document
-    .querySelector("#boton-retirar p")
-    .classList.add("text-decoration-underline");
+  document.querySelector("#boton-retirar p").classList.add("text-decoration-underline");
   document
     .querySelector("#boton-transferir p")
     .classList.remove("text-decoration-underline");
@@ -79,7 +76,9 @@ botonRetirar.addEventListener("click", () => {
   accionTransferir.classList.add("invisible");
   accionConsultar.classList.add("invisible");
   accionConsignar.classList.add("invisible");
-  document.querySelectorAll("p").value=""
+  document.querySelectorAll("p").value = ""
+  document.querySelector("#boton-retirar a").click();
+
 });
 
 const btnRetirar = document.querySelector("#btn-retirar");
@@ -125,6 +124,7 @@ btnRetirar.addEventListener("click", () => {
 
 botonTransferir.addEventListener("click", () => {
   // reducirElementos();
+  document.querySelector("#boton-transferir a").click();
   acciones.classList.remove("invisible");
   document
     .querySelector("#boton-transferir p")
@@ -143,7 +143,7 @@ botonTransferir.addEventListener("click", () => {
   accionTransferir.classList.remove("invisible");
   accionConsultar.classList.add("invisible");
   accionConsignar.classList.add("invisible");
-  document.querySelectorAll("p").value=""
+  document.querySelectorAll("p").value = ""
 });
 const btnTransferir = document.querySelector("#btn-transferir");
 let valorTransferir;
@@ -175,7 +175,7 @@ btnTransferir.addEventListener("click", () => {
   const transferirNombre = document.querySelector("#nombre");
   const transferirCorreo = document.querySelector("#correo");
   const transferirCuenta = document.querySelector("#cuenta");
-  const formularioTransferir=document.querySelector("#form-transferir")
+  const formularioTransferir = document.querySelector("#form-transferir")
 
   parrafoTransferir.innerHTML = "";
   valorTransferir = document.querySelector("#monto");
@@ -188,10 +188,10 @@ btnTransferir.addEventListener("click", () => {
   } else if (usuarios[1].saldo < valorTransferir.value) {
     parrafoTransferir.innerHTML = "Saldo insuficiente";
     console.log("Saldo insuficiente");
-  } else if (valorTransferir.value <1000) {
+  } else if (valorTransferir.value < 1000) {
     parrafoTransferir.innerHTML = "Monto inválido, ingresar valor mayor a 1000";
     console.log("Operacion invalida");
-  } 
+  }
   else {
     saldoNuevo = usuarios[1].saldo - parseFloat(valorTransferir.value);
     usuarios[1].saldo = saldoNuevo;
@@ -207,6 +207,7 @@ botonConsultar.addEventListener("click", (e) => {
   // e.preventDefault();
   // reducirElementos();
   // accionTitulo.textContent = ('Usted seleccionó CONSULTAR SALDO');
+  document.querySelector("#boton-consultar a").click();
   acciones.classList.remove("invisible");
   saldoGeneral.value = parseFloat(usuarios[1].saldo);
   document
@@ -225,10 +226,11 @@ botonConsultar.addEventListener("click", (e) => {
   accionTransferir.classList.add("invisible");
   accionConsultar.classList.remove("invisible");
   accionConsignar.classList.add("invisible");
-  document.querySelectorAll('p').value=""
+  document.querySelectorAll('p').value = ""
 });
 botonConsignar.addEventListener("click", () => {
   // reducirElementos();
+  document.querySelector("#boton-consignar a").click();
   acciones.classList.remove("invisible");
   document
     .querySelector("#boton-consignar p")
@@ -247,7 +249,7 @@ botonConsignar.addEventListener("click", () => {
   accionTransferir.classList.add("invisible");
   accionConsultar.classList.add("invisible");
   accionConsignar.classList.remove("invisible");
-  document.querySelectorAll("p").value=""
+  document.querySelectorAll("p").value = ""
 });
 
 const btnConsignar = document.querySelector("#btn-consignar");

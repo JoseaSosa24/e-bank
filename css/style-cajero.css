@@ -13,7 +13,6 @@ main {
   background: linear-gradient(#4986d0, #1254be) !important;
 }
 
-/* 1) Login - @juliana */
 
 /* 2) Vista principal - juliana */
 
@@ -340,7 +339,7 @@ thead td {
   border: 4px solid white;
 }
 .consultar input {
-  /* background: transparent; */
+  background: transparent;
   padding: 2%;
   font-size: 170%;
   color: white;
