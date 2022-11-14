@@ -22,7 +22,6 @@ window.onload = () => {
   // ('#onload').fadeOut();
 }
 
-// let saldo = 50000;
 let saldoGeneral = document.querySelector("#saldo-general");
 
 // import {devolverNombre } from "./js-login.js";
@@ -74,6 +73,7 @@ const usuarios = [
     saldo: 15000000
   }
 ];
+let usuarioRamdon = 1;
 
 const expresionRegular = {
   usuario: /^[a-zA-Z0-9\_]{4,16}$/, // Letras, numeros, guion_bajo
@@ -85,10 +85,10 @@ const expresionRegular = {
 
 const acciones = document.querySelector("#transacciones");
 // const accionTitulo = document.querySelector('#titulo h3');
-const accionRetirar = document.querySelector("#retirar");
-const accionTransferir = document.querySelector("#transferir");
-const accionConsultar = document.querySelector("#consultar");
-const accionConsignar = document.querySelector("#consignar");
+const transaccionRetirar = document.querySelector("#retirar");
+const transaccionTransferir = document.querySelector("#transferir");
+const transaccionConsultar = document.querySelector("#consultar");
+const transaccionConsignar = document.querySelector("#consignar");
 
 ocultarAcciones();
 
@@ -96,46 +96,60 @@ function ocultarAcciones() {
   acciones.classList.add("invisible");
 }
 
+function mostrarAccion(texto) {
+  const botonesTextos = document.querySelectorAll('#botones-transacciones p');
+  const accion = document.querySelectorAll('#transacciones .transaccion');
+  for (let i = 0; i < accion.length; i++) {
+    if (botonesTextos[i].textContent === texto) {
+      console.log("verdadero " + botonesTextos[i].textContent + " " + texto);
+      botonesTextos[i].classList.add("text-decoration-underline");
+      accion[i].classList.remove('invisible');
+    } else {
+      console.log("falso" + botonesTextos[i].textContent + " " + texto);
+      accion[i].classList.add('invisible');
+      botonesTextos[i].classList.remove("text-decoration-underline");
+    }
+  }
+}
 
+function limpiarAlertas() {
+  const parrafos = document.querySelectorAll("#transacciones p");
+  parrafos.forEach((parrafo) => {
+    parrafo.innerHTML = "";
+  });
+
+  const imgs = document.querySelectorAll("#transacciones img");
+  imgs.forEach((img) => {
+    img.src = "";
+  })
+}
 
 const botonRetirar = document.querySelector("#boton-retirar");
 const botonTransferir = document.querySelector("#boton-transferir");
 const botonConsultar = document.querySelector("#boton-consultar");
 const botonConsignar = document.querySelector("#boton-consignar");
-
+const textoBotonTransacciones = document.querySelectorAll(".botones-transacciones p");
+let textoAccion;
+let alertaMensaje;
+let iconoAlerta
 
 botonRetirar.addEventListener("click", () => {
   // reducirElementos();
   // accionTitulo.textContent = ('Usted seleccionó RETIRAR DINERO')
   acciones.classList.remove("invisible");
-  document.querySelector("#boton-retirar p").classList.add("text-decoration-underline");
-  document
-    .querySelector("#boton-transferir p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-consultar p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-consignar p")
-    .classList.remove("text-decoration-underline");
-  accionRetirar.classList.remove("invisible");
-  accionTransferir.classList.add("invisible");
-  accionConsultar.classList.add("invisible");
-  accionConsignar.classList.add("invisible");
-  document.querySelectorAll("p").value = ""
+  limpiarAlertas();
   document.querySelector("#boton-retirar a").click();
-  limpiarAlertas()
+  mostrarAccion("Retirar dinero");
 
 });
 
 const btnRetirar = document.querySelector("#btn-retirar");
 
 // let mensajeAlerta = document.querySelector("#alerta");
-
 let saldoNuevo = 0;
-
 const tiempoTranscurrido = Date.now();
 const hoy = new Date(tiempoTranscurrido);
+
 function agregarRetiro() {
   const trRetiro = document.createElement("tr");
   const tdFecha = document.createElement("td");
@@ -152,54 +166,40 @@ function agregarRetiro() {
 
 btnRetirar.addEventListener("click", () => {
   const valorRetirar = document.querySelector("#valor-retirar");
-  const alertaRetirar = document.querySelector("#alerta-retirar");
-  const iconoAlerta = document.querySelector("#retirar-mensaje img");
-  alertaRetirar.innerHTML = "";
-  if (usuarios[1].saldo < valorRetirar.value) {
-    iconoAlerta.src = "./../img/icon/incorrecto.png";
-    alertaRetirar.innerHTML = "Saldo insuficiente";
+  const alertaMensaje = document.querySelector("#alerta-retirar");
+  iconoAlerta = document.querySelector("#retirar-mensaje img");
+  alertaMensaje.innerHTML = "";
+  if (usuarios[usuarioRamdon].saldo < valorRetirar.value) {
+    mostrarCampoIncorrecto(alertaMensaje, "Saldo insuficiente",
+      iconoAlerta, "../img/icon/incorrecto.png");
+  } else if (valorRetirar.value <= 0) {
+    mostrarCampoIncorrecto(alertaMensaje, "Operación inválida",
+      iconoAlerta, "../img/icon/incorrecto.png");
   } else if (valorRetirar.value < 10000) {
-    iconoAlerta.src = "./../img/icon/incorrecto.png";
-    alertaRetirar.innerHTML = "Retiro mínimo de $ 10000";
-  } else if (valorRetirar.value.length == 0) {
-    alertaRetirar.innerHTML = "Operación inválida";
+    mostrarCampoIncorrecto(alertaMensaje, "Retiro mínimo de $ 10000",
+      iconoAlerta, "../img/icon/incorrecto.png");
   } else {
-    saldoNuevo = usuarios[1].saldo - valorRetirar.value;
-    usuarios[1].saldo = saldoNuevo;
-    // saldoGeneral.value = usuarios[1].saldo;
+    saldoNuevo = usuarios[usuarioRamdon].saldo - valorRetirar.value;
+    usuarios[usuarioRamdon].saldo = saldoNuevo;
+    // saldoGeneral.value = usuarios[usuarioRamdon].saldo;
     console.log(saldoGeneral.value);
     agregarRetiro();
     valorRetirar.value = "";
-    alertaRetirar.innerHTML = "Retiro exitoso";
+    alertaMensaje.innerHTML = "Retiro exitoso";
     iconoAlerta.src = "./../img/icon/correcto.png";
     setTimeout(() => {
-      alertaRetirar.innerHTML = "";
+      alertaMensaje.innerHTML = "";
       iconoAlerta.src = "";
     }, 4000);
   }
 });
 
 botonTransferir.addEventListener("click", () => {
-  document.querySelector("#boton-transferir a").click();
-  acciones.classList.remove("invisible");
-  document
-    .querySelector("#boton-transferir p")
-    .classList.add("text-decoration-underline");
-  document
-    .querySelector("#boton-retirar p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-consultar p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-consignar p")
-    .classList.remove("text-decoration-underline");
-  // accionTitulo.textContent = ('Usted seleccionó TRANSFERIR DINERO')
-  accionRetirar.classList.add("invisible");
-  accionTransferir.classList.remove("invisible");
-  accionConsultar.classList.add("invisible");
-  accionConsignar.classList.add("invisible");
   limpiarAlertas();
+  acciones.classList.remove("invisible");
+  document.querySelector("#boton-transferir a").click();
+  textoAccion = document.querySelector("#boton-transferir p");
+  mostrarAccion(textoAccion.textContent);
 });
 
 
@@ -229,47 +229,56 @@ function agregarTransferencia() {
   tr.appendChild(tdFecha);
 }
 
-btnTransferir.addEventListener("click", () => {
+function mostrarCampoIncorrecto(alerta, mensaje, icono, img) {
+  icono.src = img;
+  alerta.innerHTML = mensaje;
+}
+
+btnTransferir.addEventListener("click", (event) => {
   const transferirNombre = document.querySelector("#nombre");
   const transferirCorreo = document.querySelector("#correo");
   const transferirCuenta = document.querySelector("#cuenta");
-  const formularioTransferir = document.querySelector("#form-transferir")
-  const alertaTransferir = document.querySelector('#alerta-transferir');
-  const iconoAlerta = document.querySelector('#transferir-mensaje img');
-  alertaTransferir.innerHTML = "";
+  const formularioTransferir = document.querySelector("#form-transferir");
+  alertaMensaje = document.querySelector('#alerta-transferir');
+  iconoAlerta = document.querySelector('#transferir-mensaje img');
+  alertaMensaje.innerHTML = "";
   valorTransferir = document.querySelector("#monto");
   if (!expresionRegular.nombre.test(transferirNombre.value)) {
-    alertaTransferir.innerHTML = "Nombre inválido";
-    iconoAlerta.src = "../img/icon/incorrecto.png";
+    mostrarCampoIncorrecto(alertaMensaje, "Nombre inválido",
+      iconoAlerta, "../img/icon/incorrecto.png");
     // transferirNombre.classList.add("bg-danger","bg-opacity-75");
   } else if (!expresionRegular.correo.test(transferirCorreo.value)) {
-    iconoAlerta.src = "../img/icon/incorrecto.png";
-    alertaTransferir.innerHTML = "Correo inválido";
+    mostrarCampoIncorrecto(alertaMensaje, "Correo inválido",
+      iconoAlerta, "../img/icon/incorrecto.png");
     // transferirCorreo.classList.add("bg-danger","bg-opacity-75");
   } else if (!expresionRegular.cuenta.test(transferirCuenta.value)) {
-    iconoAlerta.src = "../img/icon/incorrecto.png";
-    alertaTransferir.innerHTML = "Número de cuenta inválido";
+    mostrarCampoIncorrecto(alertaMensaje, "Número de cuenta inválido",
+      iconoAlerta, "../img/icon/incorrecto.png");
     // transferirCuenta.classList.add("bg-danger","bg-opacity-75");
-  } else if (usuarios[1].saldo < valorTransferir.value) {
-    iconoAlerta.src = "../img/icon/incorrecto.png";
-    alertaTransferir.innerHTML = "Saldo insuficiente";
+  } else if (usuarios[usuarioRamdon].saldo < valorTransferir.value) {
+    mostrarCampoIncorrecto(alertaMensaje, "Saldo insuficiente",
+      iconoAlerta, "../img/icon/incorrecto.png");
+    // valorTransferir.classList.add("bg-danger","bg-opacity-75");
+  } else if (valorTransferir.value <= 0) {
+    mostrarCampoIncorrecto(alertaMensaje, "Monto inválido",
+      iconoAlerta, "../img/icon/incorrecto.png");
     // valorTransferir.classList.add("bg-danger","bg-opacity-75");
   } else if (valorTransferir.value < 1000) {
-    iconoAlerta.src = "../img/icon/incorrecto.png";
-    alertaTransferir.innerHTML = "Monto inválido";
+    mostrarCampoIncorrecto(alertaMensaje, "Transferencia mínima de $ 1000",
+      iconoAlerta, "../img/icon/incorrecto.png");
     // valorTransferir.classList.add("bg-danger","bg-opacity-75");
   }
   else {
-    saldoNuevo = usuarios[1].saldo - parseFloat(valorTransferir.value);
-    usuarios[1].saldo = saldoNuevo;
-    saldoGeneral.value = usuarios[1].saldo;
+    saldoNuevo = usuarios[usuarioRamdon].saldo - parseFloat(valorTransferir.value);
+    usuarios[usuarioRamdon].saldo = saldoNuevo;
+    // saldoGeneral.value = usuarios[usuarioRamdon].saldo;
     console.log(saldoGeneral.value);
     agregarTransferencia();
     iconoAlerta.src = "../img/icon/correcto.png";
-    alertaTransferir.innerHTML = "Operación Exitosa";
+    alertaMensaje.innerHTML = "Operación Exitosa";
     formularioTransferir.reset()
     setTimeout(() => {
-      alertaTransferir.innerHTML = "";
+      alertaMensaje.innerHTML = "";
       iconoAlerta.src = "";
     }, 4000);
   }
@@ -277,90 +286,49 @@ btnTransferir.addEventListener("click", () => {
 });
 
 botonConsultar.addEventListener("click", (e) => {
-  // e.preventDefault();
-  // reducirElementos();
-  // accionTitulo.textContent = ('Usted seleccionó CONSULTAR SALDO');
-  document.querySelector("#boton-consultar a").click();
   acciones.classList.remove("invisible");
-  saldoGeneral.value = parseFloat(usuarios[1].saldo);
-  document
-    .querySelector("#boton-consultar p")
-    .classList.add("text-decoration-underline");
-  document
-    .querySelector("#boton-transferir p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-retirar p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-consignar p")
-    .classList.remove("text-decoration-underline");
-  accionRetirar.classList.add("invisible");
-  accionTransferir.classList.add("invisible");
-  accionConsultar.classList.remove("invisible");
-  accionConsignar.classList.add("invisible");
+  textoAccion = document.querySelector("#boton-consultar p");
   limpiarAlertas()
+  document.querySelector("#boton-consultar a").click();
+  saldoGeneral.value = parseFloat(usuarios[usuarioRamdon].saldo);
+  mostrarAccion(textoAccion.textContent);
+
 });
 botonConsignar.addEventListener("click", () => {
-  // reducirElementos();
-  document.querySelector("#boton-consignar a").click();
-  acciones.classList.remove("invisible");
-  document
-    .querySelector("#boton-consignar p")
-    .classList.add("text-decoration-underline");
-  document
-    .querySelector("#boton-consultar p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-transferir p")
-    .classList.remove("text-decoration-underline");
-  document
-    .querySelector("#boton-retirar p")
-    .classList.remove("text-decoration-underline");
-  // accionTitulo.textContent = ('Usted seleccionó CONSIGNAR DINERO');
-  accionRetirar.classList.add("invisible");
-  accionTransferir.classList.add("invisible");
-  accionConsultar.classList.add("invisible");
-  accionConsignar.classList.remove("invisible");
   limpiarAlertas();
+  acciones.classList.remove("invisible");
+  document.querySelector("#boton-consignar a").click();
+  textoAccion = document.querySelector("#boton-consignar p");
+  mostrarAccion(textoAccion.textContent);
 });
 
 const btnConsignar = document.querySelector("#btn-consignar");
 btnConsignar.addEventListener("click", () => {
-  const alertaConsignar = document.querySelector("#alerta-consignar");
-  const iconoAlerta = document.querySelector("#consignar-mensaje img");
+  alertaMensaje = document.querySelector("#alerta-consignar");
+  iconoAlerta = document.querySelector("#consignar-mensaje img");
   const valorConsignar = document.querySelector("#valor-cosignar");
-  alertaConsignar.innerHTML = "";
+  alertaMensaje.innerHTML = "";
 
-  if (valorConsignar.value < 1000) {
-    alertaConsignar.innerHTML = "Consignación mínima de $ 1000";
-    iconoAlerta.src = "./../img/icon/incorrecto.png";
+  if (valorConsignar.value <= 0) {
+    mostrarCampoIncorrecto(alertaMensaje, "Operación inválida",
+      iconoAlerta, "../img/icon/incorrecto.png");
+  } else if (valorConsignar.value < 1000) {
+    mostrarCampoIncorrecto(alertaMensaje, "Consignación mínima de $ 1000",
+      iconoAlerta, "../img/icon/incorrecto.png");
   } else {
-    saldoNuevo = parseFloat(valorConsignar.value) + usuarios[1].saldo;
-    usuarios[1].saldo = saldoNuevo;
+    saldoNuevo = parseFloat(valorConsignar.value) + usuarios[usuarioRamdon].saldo;
+    usuarios[usuarioRamdon].saldo = saldoNuevo;
     // saldoGeneral.value = usuarios[1].saldo;
     console.log(saldoGeneral.value);
-    alertaConsignar.innerHTML = "Consignación exitosa";
+    alertaMensaje.innerHTML = "Consignación exitosa";
     iconoAlerta.src = "./../img/icon/correcto.png";
     valorConsignar.value = "";
     setTimeout(() => {
-      alertaConsignar.innerHTML = "";
+      alertaMensaje.innerHTML = "";
       iconoAlerta.src = "";
     }, 4000);
   }
 });
-
-function limpiarAlertas() {
-  const parrafos = document.querySelectorAll("#transacciones p");
-  parrafos.forEach((parrafo) => {
-    parrafo.innerHTML = "";
-  });
-
-  const imgs = document.querySelectorAll("#transacciones img");
-  imgs.forEach((img) => {
-    img.src = "";
-  })
-}
 
 const formSalir = document.querySelector('#form-salir')
 const btnSalir = document.querySelector('#btn-salir');
@@ -384,6 +352,4 @@ btnSalir.addEventListener('click', (e) => {
     }, 2000);
 
   }, 2000);
-
-
 });
