@@ -57,13 +57,13 @@ const campos = {
 
 const usuario = document.querySelector('#usuario');
 const contrasena = document.querySelector('#contrasena');
-
+let errorIcono;
 function mensajeError(mensaje) {
     const mensajeError = document.querySelector("#mensaje-error");
-    const iconoError = document.querySelector("#mensaje-error img");
+    // errorIcono = document.getElementById("#error-img");
     mensajeError.classList.add('text-white', 'fw-bold');
     mensajeError.textContent = mensaje;
-    // iconoError.src = "../img/icon/incorrecto.png";
+    // errorIcono.src = "../img/icon/incorrecto.png";
 }
 
 export function mostrandoCorrecto(campo) {
@@ -197,7 +197,7 @@ btnIniciar.addEventListener('click', (event) => {
         }
     } else {
         event.preventDefault();
-        mensajeError("Campos vacios o incorrectos");
+        mensajeError("Campos vacíos o incorrectos");
     }
 
 });
