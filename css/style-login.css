@@ -127,22 +127,22 @@ main {
   background-color: #5ce1e6;
   border-radius: 15px;
   border: solid 4px;
-  border-color: white;
+  border:none;
   width: 220px;
   height: 60px;
-  -webkit-text-stroke: 1px white;
+  font-weight: bold;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 .btn-iniciar:hover {
   /* background-color: #5bc9ff; */
   /* background-color: white; */
-  color: black !important;
   border-color: #5ce1e6;
   font-size: 17pt;
   /* border: white 4px solid; */
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
+  -webkit-text-stroke: 1px white;
   /* border: 5px solid #5ce1e6; */
 }
 
@@ -169,7 +169,7 @@ main {
   background-color: #5ce1e6;
   border-radius: 15px;
   border: solid 4px;
-  border-color: white;
+  border:none;
   width: 220px;
   height: 60px;
   -webkit-text-stroke: 1px white;
@@ -190,10 +190,11 @@ main {
   background-color: #5ce1e6;
   border-radius: 15px;
   border: solid 4px;
-  border-color: white;
+  /* border-color: white; */
   width: 220px;
   height: 60px;
   margin-top: 65px;
+  border:none;
   -webkit-text-stroke: 1px white;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;

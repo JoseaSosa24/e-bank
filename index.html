@@ -29,9 +29,9 @@
     <main class="principal invisible" id="principal">
 
         <header class="superior" id="superior">
-            <form action="../login/login.html">
+            <form action="../login/login.html" id="form-salir">
                 <!-- Button trigger modal -->
-                <button type="button" class="boton-salir m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <button type="button" class="boton-salir" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <img src="../img/Salir.png" alt="img-salir">
                     <p>Salir</p>
                 </button>
@@ -39,9 +39,9 @@
                 <!-- Modal -->
                 <section class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <section class="modal-dialog modal-dialog-centered">
-                        <section class="modal-content">
-                            <section class="modal-header d-flex g-5">
+                    <section class="modal-dialog modal-dialog-centered" id="ventana-salir-modal">
+                        <section class="modal-content" id="contenedor-salir">
+                            <section class="modal-header d-flex g-5" id="header-salir">
                                 <img src="../img/logo_ebank.png" class="w-25" alt="">
                                 <!-- <h1 class="modal-title fs-4 fw-bold" id="staticBackdropLabel">-Confirmación</h1> -->
 
@@ -53,8 +53,8 @@
                             </section>
                             <section class="modal-footer">
                                 <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Salir de la
+                                    data-bs-dismiss="modal" id="btn-cancelar">Cancelar</button>
+                                <button type="click" class="btn-salir btn btn-primary" id="btn-salir">Salir de la
                                     sesión</button>
                             </section>
                         </section>
@@ -134,7 +134,7 @@
                         <p id="error-transferir"></p>
                         <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text" minlength=""
                             maxlength="20">
-                        <input id="correo" class="correo" name="correo" placeholder="Correo electónico" type="email">
+                        <input id="correo" class="correo" name="correo" placeholder="Correo electrónico" type="email">
                         <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="text"
                             maxlength="11"
                             onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">

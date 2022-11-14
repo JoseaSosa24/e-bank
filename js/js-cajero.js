@@ -13,6 +13,7 @@
 
 window.onload = () => {
   document.querySelector('#img-cargando').src = '../img/logo_ebank.png';
+  mensajeSalida.textContent = 'Cargando';
   setTimeout(() => {
     $('#principal').removeClass('invisible');
     $('#contenedor').addClass('invisible');
@@ -21,39 +22,56 @@ window.onload = () => {
   // ('#onload').fadeOut();
 }
 
-let saldo = 50000;
+// let saldo = 50000;
 let saldoGeneral = document.querySelector("#saldo-general");
 
-let usuarios = [
+// import {devolverNombre } from "./js-login.js";
+// import {usuarios } from "./js-login.js";
+
+// document.querySelector('#titulo-bienvenida').textContent="Bienvenido "+devolverNombre;
+
+const usuarios = [
   {
+    nombre: "José",
+    apellido: "Sosa",
     user: "josesosa",
     pass: "12345",
-    saldo: 4000000,
+    saldo: 4000000
   },
   {
+    nombre: "Susana",
+    apellido: "",
     user: "lennysusana",
     pass: "54321",
-    saldo: 3000000,
+    saldo: 3000000
   },
   {
+    nombre: "Santiago",
+    apellido: "Misas",
     user: "misas_mouse",
     pass: "2468",
-    saldo: 2500000,
+    saldo: 2500000
   },
   {
+    nombre: "Xiomara",
+    apellido: "Guzman",
     user: "XiomiGuzman",
     pass: "2468",
-    saldo: 2300000,
+    saldo: 2300000
   },
   {
+    nombre: "Natalia",
+    apellido: "Mafla",
     user: "NataMafla",
     pass: "2468",
-    saldo: 1500000,
+    saldo: 1500000
   },
   {
+    nombre: "Juliana",
+    apellido: "Rios",
     user: "julirios",
     pass: "abc123",
-    saldo: 1500000,
+    saldo: 15000000
   }
 ];
 
@@ -343,3 +361,29 @@ function limpiarAlertas() {
     img.src = "";
   })
 }
+
+const formSalir = document.querySelector('#form-salir')
+const btnSalir = document.querySelector('#btn-salir');
+const btnCancelar = document.querySelector('#btn-cancelar');
+const mensajeSalida = document.querySelector('#cargando');
+btnSalir.addEventListener('click', (e) => {
+  e.preventDefault();
+  document.querySelector('#contenedor').classList.remove('invisible');
+  btnCancelar.click();
+  document.querySelector('main').classList.add('invisible');
+  document.querySelector('#img-cargando').src = '../img/logo_ebank.png';
+  mensajeSalida.textContent = 'Cerrando Sesión...';
+  setTimeout(() => {
+    mensajeSalida.textContent = 'Gracias por elegir a E-Bank :)';
+    setTimeout(() => {
+      mensajeSalida.textContent = '¡Vuelve pronto!';
+      setTimeout(() => {
+        formSalir.submit();
+      }, 1500);
+
+    }, 2000);
+
+  }, 2000);
+
+
+});

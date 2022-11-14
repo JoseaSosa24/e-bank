@@ -12,6 +12,7 @@ main {
   /* border: black 5px solid; */
   background: linear-gradient(#4986d0, #1254be) !important;
 }
+
 /*--------------ESTILOS DE PRECARGA DE LA PÁGINA--------------------*/
 .centrado-cargando {
   /* background-color: black; */
@@ -103,6 +104,7 @@ main {
   /* border: solid 1px black; */
   text-align: center;
   padding: 10px;
+  margin-bottom: 4%;
 }
 
 .transacciones {
@@ -110,7 +112,7 @@ main {
   justify-content: center;
   align-items: center;
   width: 100%;
-  /*  height: 100%; */
+   /* height: 100%; */
 }
 
 /* Botones secciones principales */
@@ -139,18 +141,25 @@ main {
   /* padding: 4%; */
 }
 
+
+/*------BOTON SALIR--------*/
 .boton-salir {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  padding: 1%;
-  height: 100px;
+  /* background-color: black !important; */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100px !important;
+  /* padding: 50% !important; */
+  height: 100px !important;
   background: transparent;
   border: none;
   font-size: 20px;
   font-weight: bold;
+}
+
+.boton-salir img {
+  margin-top: 25px;
 }
 
 .boton-salir:hover {
@@ -288,7 +297,7 @@ main {
   border-radius: 20px;
   width: 100%;
   padding: 4%;
-  gap: 3%;
+  gap: 2%;
 }
 
 .form-transferir {
@@ -528,3 +537,15 @@ thead td {
 .hidden {
   overflow: hidden;
 }
+
+
+/* @media (min-width: 768px) and (max-width: 1199px) { 
+ body,main{
+ height: 120%;
+ width: auto;
+ background: linear-gradient(#4986d0, #1254be) !important;
+ }
+} */
+
+/* @media (max-width: 480px) { 
+} */
