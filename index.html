@@ -14,7 +14,7 @@
 
 <body>
     <section class="centrado-cargando" id="contenedor">
-    <img src="" alt="" class="img-cargando" id="img-cargando">
+        <img src="" alt="" class="img-cargando" id="img-cargando">
         <section class="lds-ring" id="onload">
             <section></section>
             <section></section>
@@ -52,8 +52,8 @@
                                 <p>¿Estás seguro de salir de la sesión?</p>
                             </section>
                             <section class="modal-footer">
-                                <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal" id="btn-cancelar">Cancelar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="btn-cancelar">Cancelar</button>
                                 <button type="click" class="btn-salir btn btn-primary" id="btn-salir">Salir de la
                                     sesión</button>
                             </section>
@@ -69,25 +69,25 @@
                 <h2>Selecciona tu transacción</h2>
             </section>
             <section class="botones-transacciones" id="botones-transacciones">
-                <button class="boton-retirar" id="boton-retirar">
-                    <img src="../img/RetirarDinero.png" alt="Retirar dinero">
-                    <a href="#btn-retirar"></a>
-                    <p>Retirar dinero</p>
+                <button class="boton-retirar b-retirar" id="boton-retirar" name="boton-retirar">
+                    <img class="b-retirar" src="../img/RetirarDinero.png" alt="Retirar dinero" name="boton-retirar">
+                    <a class="b-retirar" href="#btn-retirar" name="boton-retirar"></a>
+                    <p name="boton-retirar" class="b-retirar">Retirar dinero</p>
                 </button>
-                <button id="boton-transferir">
-                    <img src="../img/TransferirDinero.png" alt="Transferir dinero">
-                    <a href="#transferir"></a>
-                    <p>Transferir dinero</p>
+                <button id="boton-transferir" class="b-transferir" name="boton-transferir">
+                    <img class="b-transferir" src="../img/TransferirDinero.png" alt="Transferir dinero">
+                    <a class="b-transferir" href="#transferir" id=""></a>
+                    <p class="b-transferir">Transferir dinero</p>
                 </button>
-                <button id="boton-consultar">
-                    <img src="../img/ConsultarSaldo.png" alt="Consultar saldo" class="img-consultar">
-                    <p>Consultar saldo</p>
-                    <a href="#saldo-general"></a>
+                <button class="b-consultar" id="boton-consultar" name="boton-consultar">
+                    <img class="b-consultar img-consultar" src="../img/ConsultarSaldo.png" alt="Consultar saldo">
+                    <p class="b-consultar">Consultar saldo</p>
+                    <a class="b-consultar" href="#saldo-general"></a>
                 </button>
-                <button id="boton-consignar">
-                    <img src="../img/ConsignarSaldo.png" alt="Consignar saldo">
-                    <p>Consignar saldo</p>
-                    <a href="#btn-consignar"></a>
+                <button class="b-consignar" id="boton-consignar" name="boton-consignar">
+                    <img class="b-consignar" src="../img/ConsignarSaldo.png" alt="Consignar saldo">
+                    <p class="b-consignar">Consignar saldo</p>
+                    <a class="b-consignar" href="#btn-consignar"></a>
                 </button>
             </section>
 
@@ -103,7 +103,11 @@
                         </section>
                         <input class="valor-retirar" id="valor-retirar" type="number" placeholder="Valor a retirar">
                         <button class="btn-retirar" id="btn-retirar" type="button">Retirar dinero</button>
+
+                        <section class="alert alert-primary invisible" role="alert" id="alerta-nuevo-saldo">
+                        </section>
                     </form>
+
                     <table class="tabla-retirar" id="tabla-retirar">
                         <thead class="thead-retirar">
                             <tr>
@@ -117,7 +121,7 @@
                                 <td>10000</td>
                             </tr>
                             <tr>
-                                <td>30/30/2022</td>
+                                <td>30/10/2022</td>
                                 <td>10000</td>
                             </tr>
                         </tbody>
@@ -142,6 +146,9 @@
                         <!-- <input id="fecha" class="fecha" name="fecha" placeholder="Fecha" type="date"> -->
                         <button id="btn-transferir" class="btn-transferir" name="btn-transferir" type="button">
                             Transferir</button>
+
+                        <section class="alert alert-primary invisible" role="alert" id="alerta-nuevo-saldo">
+                        </section>
                     </form>
 
                     <table class="tabla-transferir" id="tabla-transferir">
@@ -190,6 +197,9 @@
                         </section>
                         <input id="valor-cosignar" type="number" placeholder="Digita el valor a consignar">
                         <button id="btn-consignar" class="btn-consignar" type="button">Consignar</button>
+
+                        <section class="alert alert-primary invisible" role="alert" id="alerta-nuevo-saldo">
+                        </section>
                     </form>
                 </section>
             </section>

@@ -11,6 +11,7 @@
 
 // }
 
+
 window.onload = () => {
   document.querySelector('#img-cargando').src = '../img/logo_ebank.png';
   mensajeSalida.textContent = 'Cargando';
@@ -24,56 +25,9 @@ window.onload = () => {
 
 let saldoGeneral = document.querySelector("#saldo-general");
 
-// import {devolverNombre } from "./js-login.js";
-// import {usuarios } from "./js-login.js";
+import { usuarios } from "./main.js";
 
-// document.querySelector('#titulo-bienvenida').textContent="Bienvenido "+devolverNombre;
-
-const usuarios = [
-  {
-    nombre: "José",
-    apellido: "Sosa",
-    user: "josesosa",
-    pass: "12345",
-    saldo: 4000000
-  },
-  {
-    nombre: "Susana",
-    apellido: "",
-    user: "lennysusana",
-    pass: "54321",
-    saldo: 3000000
-  },
-  {
-    nombre: "Santiago",
-    apellido: "Misas",
-    user: "misas_mouse",
-    pass: "2468",
-    saldo: 2500000
-  },
-  {
-    nombre: "Xiomara",
-    apellido: "Guzman",
-    user: "XiomiGuzman",
-    pass: "2468",
-    saldo: 2300000
-  },
-  {
-    nombre: "Natalia",
-    apellido: "Mafla",
-    user: "NataMafla",
-    pass: "2468",
-    saldo: 1500000
-  },
-  {
-    nombre: "Juliana",
-    apellido: "Rios",
-    user: "julirios",
-    pass: "abc123",
-    saldo: 15000000
-  }
-];
-let usuarioRamdon = 1;
+let usuarioRamdon = 5;
 
 const expresionRegular = {
   usuario: /^[a-zA-Z0-9\_]{4,16}$/, // Letras, numeros, guion_bajo
@@ -85,10 +39,6 @@ const expresionRegular = {
 
 const acciones = document.querySelector("#transacciones");
 // const accionTitulo = document.querySelector('#titulo h3');
-const transaccionRetirar = document.querySelector("#retirar");
-const transaccionTransferir = document.querySelector("#transferir");
-const transaccionConsultar = document.querySelector("#consultar");
-const transaccionConsignar = document.querySelector("#consignar");
 
 ocultarAcciones();
 
@@ -124,22 +74,39 @@ function limpiarAlertas() {
   })
 }
 
-const botonRetirar = document.querySelector("#boton-retirar");
-const botonTransferir = document.querySelector("#boton-transferir");
-const botonConsultar = document.querySelector("#boton-consultar");
-const botonConsignar = document.querySelector("#boton-consignar");
 const textoBotonTransacciones = document.querySelectorAll(".botones-transacciones p");
 let textoAccion;
 let alertaMensaje;
 let iconoAlerta
 
-botonRetirar.addEventListener("click", () => {
-  // reducirElementos();
-  // accionTitulo.textContent = ('Usted seleccionó RETIRAR DINERO')
-  acciones.classList.remove("invisible");
-  limpiarAlertas();
-  document.querySelector("#boton-retirar a").click();
-  mostrarAccion("Retirar dinero");
+const botonesTransacciones = document.querySelector('#botones-transacciones');
+botonesTransacciones.addEventListener('click', (e) => {
+  if (e.target.classList.contains('b-retirar')) {
+    console.log('Entró Retirar');
+    acciones.classList.remove("invisible");
+    limpiarAlertas();
+    document.querySelector("#boton-retirar a").click();
+    mostrarAccion("Retirar dinero");
+  } else if (e.target.classList.contains('b-transferir')) {
+    limpiarAlertas();
+    acciones.classList.remove("invisible");
+    document.querySelector("#boton-transferir a").click();
+    textoAccion = document.querySelector("#boton-transferir p");
+    mostrarAccion(textoAccion.textContent);
+  } else if (e.target.classList.contains('b-consultar')) {
+    limpiarAlertas();
+    acciones.classList.remove("invisible");
+    document.querySelector("#boton-consultar a").click();
+    saldoGeneral.value = parseFloat(usuarios[usuarioRamdon].saldo);
+    textoAccion = document.querySelector("#boton-consultar p");
+    mostrarAccion(textoAccion.textContent);
+  } else if (e.target.classList.contains('b-consignar')) {
+    limpiarAlertas();
+    acciones.classList.remove("invisible");
+    document.querySelector("#boton-consignar a").click();
+    textoAccion = document.querySelector("#boton-consignar p");
+    mostrarAccion(textoAccion.textContent);
+  }
 
 });
 
@@ -164,9 +131,11 @@ function agregarRetiro() {
   trRetiro.appendChild(tdValorRetiro);
 }
 
+
 btnRetirar.addEventListener("click", () => {
   const valorRetirar = document.querySelector("#valor-retirar");
   const alertaMensaje = document.querySelector("#alerta-retirar");
+  const alertaNuevoSaldo = document.querySelector('#retirar #alerta-nuevo-saldo')
   iconoAlerta = document.querySelector("#retirar-mensaje img");
   alertaMensaje.innerHTML = "";
   if (usuarios[usuarioRamdon].saldo < valorRetirar.value) {
@@ -181,6 +150,8 @@ btnRetirar.addEventListener("click", () => {
   } else {
     saldoNuevo = usuarios[usuarioRamdon].saldo - valorRetirar.value;
     usuarios[usuarioRamdon].saldo = saldoNuevo;
+    alertaNuevoSaldo.textContent='Su nuevo saldo es de: '+saldoNuevo+" $"
+    alertaNuevoSaldo.classList.remove('invisible');
     // saldoGeneral.value = usuarios[usuarioRamdon].saldo;
     console.log(saldoGeneral.value);
     agregarRetiro();
@@ -190,18 +161,10 @@ btnRetirar.addEventListener("click", () => {
     setTimeout(() => {
       alertaMensaje.innerHTML = "";
       iconoAlerta.src = "";
-    }, 4000);
+      alertaNuevoSaldo.classList.add('invisible')
+    }, 5200);
   }
 });
-
-botonTransferir.addEventListener("click", () => {
-  limpiarAlertas();
-  acciones.classList.remove("invisible");
-  document.querySelector("#boton-transferir a").click();
-  textoAccion = document.querySelector("#boton-transferir p");
-  mostrarAccion(textoAccion.textContent);
-});
-
 
 const btnTransferir = document.querySelector("#btn-transferir");
 let valorTransferir;
@@ -239,6 +202,7 @@ btnTransferir.addEventListener("click", (event) => {
   const transferirCorreo = document.querySelector("#correo");
   const transferirCuenta = document.querySelector("#cuenta");
   const formularioTransferir = document.querySelector("#form-transferir");
+  const alertaNuevoSaldo = document.querySelector('#transferir #alerta-nuevo-saldo');
   alertaMensaje = document.querySelector('#alerta-transferir');
   iconoAlerta = document.querySelector('#transferir-mensaje img');
   alertaMensaje.innerHTML = "";
@@ -273,6 +237,8 @@ btnTransferir.addEventListener("click", (event) => {
     usuarios[usuarioRamdon].saldo = saldoNuevo;
     // saldoGeneral.value = usuarios[usuarioRamdon].saldo;
     console.log(saldoGeneral.value);
+    alertaNuevoSaldo.textContent='Su nuevo saldo es de: '+saldoNuevo+" $"
+    alertaNuevoSaldo.classList.remove('invisible');
     agregarTransferencia();
     iconoAlerta.src = "../img/icon/correcto.png";
     alertaMensaje.innerHTML = "Operación Exitosa";
@@ -280,26 +246,10 @@ btnTransferir.addEventListener("click", (event) => {
     setTimeout(() => {
       alertaMensaje.innerHTML = "";
       iconoAlerta.src = "";
-    }, 4000);
+      alertaNuevoSaldo.classList.add('invisible');
+    }, 5200);
   }
 
-});
-
-botonConsultar.addEventListener("click", (e) => {
-  acciones.classList.remove("invisible");
-  textoAccion = document.querySelector("#boton-consultar p");
-  limpiarAlertas()
-  document.querySelector("#boton-consultar a").click();
-  saldoGeneral.value = parseFloat(usuarios[usuarioRamdon].saldo);
-  mostrarAccion(textoAccion.textContent);
-
-});
-botonConsignar.addEventListener("click", () => {
-  limpiarAlertas();
-  acciones.classList.remove("invisible");
-  document.querySelector("#boton-consignar a").click();
-  textoAccion = document.querySelector("#boton-consignar p");
-  mostrarAccion(textoAccion.textContent);
 });
 
 const btnConsignar = document.querySelector("#btn-consignar");
@@ -307,6 +257,7 @@ btnConsignar.addEventListener("click", () => {
   alertaMensaje = document.querySelector("#alerta-consignar");
   iconoAlerta = document.querySelector("#consignar-mensaje img");
   const valorConsignar = document.querySelector("#valor-cosignar");
+  const alertaNuevoSaldo = document.querySelector('#consignar #alerta-nuevo-saldo');
   alertaMensaje.innerHTML = "";
 
   if (valorConsignar.value <= 0) {
@@ -320,13 +271,16 @@ btnConsignar.addEventListener("click", () => {
     usuarios[usuarioRamdon].saldo = saldoNuevo;
     // saldoGeneral.value = usuarios[1].saldo;
     console.log(saldoGeneral.value);
+    alertaNuevoSaldo.textContent='Su nuevo saldo es de: '+saldoNuevo+" $"
+    alertaNuevoSaldo.classList.remove('invisible');
     alertaMensaje.innerHTML = "Consignación exitosa";
     iconoAlerta.src = "./../img/icon/correcto.png";
     valorConsignar.value = "";
     setTimeout(() => {
       alertaMensaje.innerHTML = "";
       iconoAlerta.src = "";
-    }, 4000);
+      alertaNuevoSaldo.classList.add('invisible');
+    }, 5200);
   }
 });
 

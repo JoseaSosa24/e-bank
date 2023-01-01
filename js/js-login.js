@@ -1,47 +1,5 @@
-export const usuarios = [
-    {
-        nombre: "José",
-        apellido: "Sosa",
-        user: "josesosa",
-        pass: "12345",
-        saldo: 4000000
-    },
-    {
-        nombre: "Susana",
-        apellido: "",
-        user: "lennysusana",
-        pass: "54321",
-        saldo: 3000000
-    },
-    {
-        nombre: "Santiago",
-        apellido: "Misas",
-        user: "misas_mouse",
-        pass: "2468",
-        saldo: 2500000
-    },
-    {
-        nombre: "Xiomara",
-        apellido: "Guzman",
-        user: "XiomiGuzman",
-        pass: "2468",
-        saldo: 2300000
-    },
-    {
-        nombre: "Natalia",
-        apellido: "Mafla",
-        user: "NataMafla",
-        pass: "2468",
-        saldo: 1500000
-    },
-    {
-        nombre: "Juliana",
-        apellido: "Rios",
-        user: "julirios",
-        pass: "abc123",
-        saldo: 15000000
-    }
-];
+import { usuarios } from "./main.js";
+import { validarCredenciales } from "./main.js";
 
 const expresionRegular = {
     usuario: /^[a-zA-Z0-9\_]{4,16}$/, // Letras, numeros, guion_bajo
@@ -55,8 +13,8 @@ const campos = {
     pass: false,
 };
 
-const usuario = document.querySelector('#usuario');
-const contrasena = document.querySelector('#contrasena');
+export const usuario = document.querySelector('#usuario');
+export const contrasena = document.querySelector('#contrasena');
 let errorIcono;
 function mensajeError(mensaje) {
     const mensajeError = document.querySelector("#mensaje-error");
@@ -77,8 +35,6 @@ export function mostrandoIncorrecto(campo) {
 }
 
 export function devolverNombre() {
-    // let sw = false;
-    let cadena = "";
     for (let i = 0; i < usuarios.length; i++) {
         if (usuario.value === usuarios[i].user) {
             // console.log("Usuario: " + usuario.value + "=" + usuarios[i].user + "Pass:" + contrasena.value + "=" + usuarios[i].pass);
@@ -130,20 +86,6 @@ inputs.forEach((input) => {
     input.addEventListener("keyup", validarFormulario);
     input.addEventListener("blur", validarFormulario);
 });
-
-function validarCredenciales() {
-    let sw = false;
-    for (let i = 0; i < usuarios.length; i++) {
-        if (usuario.value === usuarios[i].user && contrasena.value === usuarios[i].pass) {
-            // console.log("Usuario: " + usuario.value + "=" + usuarios[i].user + "Pass:" + contrasena.value + "=" + usuarios[i].pass);
-            return sw = true;
-        } else {
-            // console.log("Usuario: " + usuario.value + "!=" + usuarios[i].user + " Pass:" + contrasena.value + "!=" + usuarios[i].pass);
-        }
-    }
-    return sw;
-}
-
 
 const btnIniciar = document.querySelector('#btn-iniciar');
 const formulario = document.querySelector('#login-form');
