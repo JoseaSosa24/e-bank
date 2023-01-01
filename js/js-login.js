@@ -102,7 +102,7 @@ function intentosAgotados(contError) {
 function iniciandoSesion() {
     document.querySelector('main').classList.add('invisible','hidden');
     document.querySelector('#contenedor').classList.remove('invisible');
-    formulario.action = ('../index.html');
+    formulario.action = ('../vistaPrincipal.html');
     document.querySelector('#img-cargando').src = '../img/logo_ebank.png';
     document.querySelector('#cargando').textContent = 'Iniciando Sesión...';
     setTimeout(() => {

@@ -2,216 +2,48 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Bank</title>
-    <link rel="stylesheet" href="./../css/style-cajero.css">
-    <link rel="shortcut icon" href="../img/e-logo.png" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E_Bank_login</title>
+    <link rel="stylesheet" href="../css/style-login.css" />
+    <link rel="shortcut icon" href="../img/e-logo.png" image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
 </head>
 
 <body>
-    <section class="centrado-cargando" id="contenedor">
+    <section class="centrado-cargando invisible" id="contenedor">
         <img src="" alt="" class="img-cargando" id="img-cargando">
-        <section class="lds-ring" id="onload">
-            <section></section>
-            <section></section>
-            <section></section>
-            <section></section>
+            <section class="lds-ring" id="onload">
+                <section></section>
+                <section></section>
+                <section></section>
+                <section></section>
+            </section>
+            <h4 id="cargando" class="text-white"></h4>
         </section>
-        <h4 id="cargando"></h4>
-    </section>
 
-
-    <!-- VISTA PRINCIPAL -->
-    <main class="principal invisible" id="principal">
-
-        <header class="superior" id="superior">
-            <form action="../login/login.html" id="form-salir">
-                <!-- Button trigger modal -->
-                <button type="button" class="boton-salir" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <img src="../img/Salir.png" alt="img-salir">
-                    <p>Salir</p>
-                </button>
-
-                <!-- Modal -->
-                <section class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <section class="modal-dialog modal-dialog-centered" id="ventana-salir-modal">
-                        <section class="modal-content" id="contenedor-salir">
-                            <section class="modal-header d-flex g-5" id="header-salir">
-                                <img src="../img/logo_ebank.png" class="w-25" alt="">
-                                <!-- <h1 class="modal-title fs-4 fw-bold" id="staticBackdropLabel">-Confirmación</h1> -->
-
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </section>
-                            <section class="modal-body fs-5">
-                                <p>¿Estás seguro de salir de la sesión?</p>
-                            </section>
-                            <section class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                    id="btn-cancelar">Cancelar</button>
-                                <button type="click" class="btn-salir btn btn-primary" id="btn-salir">Salir de la
-                                    sesión</button>
-                            </section>
-                        </section>
-                    </section>
+    <main class="principal" id="principal">
+        <img class="logo" src="./../img/logo_ebank.png" alt="Logo">
+        <section class="login" id="login">
+            <form class="login-form" id="login-form">
+                <input id="usuario" type="text" name="usuario" placeholder="Usuario">
+                <input id="contrasena" type="password" name="contrasena" placeholder="Contraseña">
+                <button class="btn-iniciar" type="submit" id="btn-iniciar">Iniciar sesión</button>
+                <section class="mensaje-error" id="mensaje-error">
+                    <img src="" class="icono-error" alt="">
+                    <p class=""></p>
                 </section>
             </form>
-        </header>
 
-        <!-- VISTA PRINCIPAL-->
-        <section class="vista-principal" id="vista-principal">
-            <section class="vista-principal-titulo" id="titulo">
-                <h2>Selecciona tu transacción</h2>
+            <section class="intentos-agotados invisible" name="intentos-agotados" id="agotados">
+                <h1></h1>
+                <a href="./index.html" id="intento-nuevo"></a>
             </section>
-            <section class="botones-transacciones" id="botones-transacciones">
-                <button class="boton-retirar b-retirar" id="boton-retirar" name="boton-retirar">
-                    <img class="b-retirar" src="../img/RetirarDinero.png" alt="Retirar dinero" name="boton-retirar">
-                    <a class="b-retirar" href="#btn-retirar" name="boton-retirar"></a>
-                    <p name="boton-retirar" class="b-retirar">Retirar dinero</p>
-                </button>
-                <button id="boton-transferir" class="b-transferir" name="boton-transferir">
-                    <img class="b-transferir" src="../img/TransferirDinero.png" alt="Transferir dinero">
-                    <a class="b-transferir" href="#transferir" id=""></a>
-                    <p class="b-transferir">Transferir dinero</p>
-                </button>
-                <button class="b-consultar" id="boton-consultar" name="boton-consultar">
-                    <img class="b-consultar img-consultar" src="../img/ConsultarSaldo.png" alt="Consultar saldo">
-                    <p class="b-consultar">Consultar saldo</p>
-                    <a class="b-consultar" href="#saldo-general"></a>
-                </button>
-                <button class="b-consignar" id="boton-consignar" name="boton-consignar">
-                    <img class="b-consignar" src="../img/ConsignarSaldo.png" alt="Consignar saldo">
-                    <p class="b-consignar">Consignar saldo</p>
-                    <a class="b-consignar" href="#btn-consignar"></a>
-                </button>
-            </section>
-
-            <!-- TRANSACCIONES -->
-            <section class="transacciones" id="transacciones">
-
-                <!-- RETIRAR -->
-                <section class="transaccion retirar" id="retirar">
-                    <form class="form-retirar" id="form-retirar">
-                        <section class="retirar-mensaje" id="retirar-mensaje">
-                            <img src="" class="" alt="">
-                            <p id="alerta-retirar" class="alerta alerta-retirar"></p>
-                        </section>
-                        <input class="valor-retirar" id="valor-retirar" type="number" placeholder="Valor a retirar">
-                        <button class="btn-retirar" id="btn-retirar" type="button">Retirar dinero</button>
-
-                        <section class="alert alert-primary invisible" role="alert" id="alerta-nuevo-saldo">
-                        </section>
-                    </form>
-
-                    <table class="tabla-retirar" id="tabla-retirar">
-                        <thead class="thead-retirar">
-                            <tr>
-                                <td>Fecha</td>
-                                <td>Valor</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>25/07/2022</td>
-                                <td>10000</td>
-                            </tr>
-                            <tr>
-                                <td>30/10/2022</td>
-                                <td>10000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <!-- TRANSFERIR -->
-                <section class="transaccion transferir" id="transferir">
-                    <form class="form-transferir" id="form-transferir">
-                        <section class="transferir-mensaje" id="transferir-mensaje">
-                            <img src="" class="" alt="">
-                            <p id="alerta-transferir" class="alerta alerta-transferir"></p>
-                        </section>
-                        <p id="error-transferir"></p>
-                        <input id="nombre" class="nombre" name="nombre" placeholder="Nombre" type="text" minlength=""
-                            maxlength="20">
-                        <input id="correo" class="correo" name="correo" placeholder="Correo electrónico" type="email">
-                        <input id="cuenta" class="cuenta" name="cuenta" placeholder="Número de cuenta" type="text"
-                            maxlength="11"
-                            onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
-                        <input id="monto" class="monto" name="monto" placeholder="Monto a transferir" type="number">
-                        <!-- <input id="fecha" class="fecha" name="fecha" placeholder="Fecha" type="date"> -->
-                        <button id="btn-transferir" class="btn-transferir" name="btn-transferir" type="button">
-                            Transferir</button>
-
-                        <section class="alert alert-primary invisible" role="alert" id="alerta-nuevo-saldo">
-                        </section>
-                    </form>
-
-                    <table class="tabla-transferir" id="tabla-transferir">
-                        <thead class="thead">
-                            <tr class="tr">
-                                <td>Nombre</td>
-                                <td>Correo</td>
-                                <td>Cuenta</td>
-                                <td>Monto</td>
-                                <td>Fecha</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Juan</td>
-                                <td>juan3@gmail.com</td>
-                                <td>01233678444</td>
-                                <td>20000</td>
-                                <td>01/06/2022</td>
-                            </tr>
-
-                            <tr>
-                                <td>Juan </td>
-                                <td>juan3@gmail.com</td>
-                                <td>01233678444</td>
-                                <td>400000</td>
-                                <td>01/06/2022</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-
-                <!-- CONSULTAR -->
-                <section class="transaccion consultar" id="consultar">
-                    <h3>Tu saldo actual es de: </h3>
-                    <input id="saldo-general" type="text" disabled>
-                </section>
-
-                <!-- CONSIGNAR -->
-                <section class="transaccion consignar" id="consignar">
-                    <form class="form-consignar" id="form-consignar">
-                        <section class="consignar-mensaje" id="consignar-mensaje">
-                            <img src="" class="" alt="">
-                            <p id="alerta-consignar" class="alerta alerta-consignar"></p>
-                        </section>
-                        <input id="valor-cosignar" type="number" placeholder="Digita el valor a consignar">
-                        <button id="btn-consignar" class="btn-consignar" type="button">Consignar</button>
-
-                        <section class="alert alert-primary invisible" role="alert" id="alerta-nuevo-saldo">
-                        </section>
-                    </form>
-                </section>
-            </section>
-        </section>
-
-        <footer class="inferior" id="inferior">
-            <img src="../img/logo_ebank.png" alt="">
-        </footer>
     </main>
 
-    <script src="./../js/js-cajero.js" type="module"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="./../js/js-login.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
