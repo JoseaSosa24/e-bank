@@ -7,7 +7,7 @@ Credenciales de prueba:
 
   **Usuario:** Administrador
   
-   **Contraseña:** Adm1234
+   **Contraseña:** 12345
 
 [![Dise-o-LOGIN.png](https://i.postimg.cc/BQb7JCJ3/Dise-o-LOGIN.png)](https://postimg.cc/8j8mHMFX)
 
