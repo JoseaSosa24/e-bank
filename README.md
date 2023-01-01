@@ -5,7 +5,7 @@ Proyecto con fines educativos que simula las acciones de un cajero electrónico(
 
 Credenciales de prueba: 
 
-  **Usuario:** Administrador
+  **Usuario:** Adm1234
   
    **Contraseña:** 12345
 
