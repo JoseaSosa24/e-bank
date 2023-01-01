@@ -1,5 +1,5 @@
 ## E-bank
-Proyecto con fines educativos que simula las acciones de un cajero electrónico(Transferir, consultar saldo, consignar saldo y retirar), además incluye un login con validaciones, 100% funcional
+Proyecto con fines educativos que simula las acciones de un cajero electrónico(Transferir, consultar saldo, consignar saldo y retirar), además incluye un login con validaciones, 100% funcional. [Ver aquí](https://github.com/JoseaSosa24/e-bank/tree/master#este-proyecto-fue-desplegado-para-su-visulizaci%C3%B3n-en-netlifycom)
 
 **Vista Login:**
 
