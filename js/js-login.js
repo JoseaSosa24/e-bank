@@ -102,8 +102,8 @@ function intentosAgotados(contError) {
 function iniciandoSesion() {
     document.querySelector('main').classList.add('invisible','hidden');
     document.querySelector('#contenedor').classList.remove('invisible');
-    formulario.action = ('../vistaPrincipal.html');
-    document.querySelector('#img-cargando').src = '../img/logo_ebank.png';
+    formulario.action = ('./vistaPrincipal.html');
+    document.querySelector('#img-cargando').src = './img/logo_ebank.png';
     document.querySelector('#cargando').textContent = 'Iniciando Sesión...';
     setTimeout(() => {
         document.querySelector('#cargando').textContent = 'Danos un momento...Estamos preparando todo para ti';
@@ -121,7 +121,7 @@ function iniciandoSesion() {
 
 var contarErrores = 3;
 btnIniciar.addEventListener('click', (event) => {
-
+    event.preventDefault();
     if (campos.user == true && campos.pass == true) {
         event.preventDefault();
         if (validarCredenciales() == true) {
