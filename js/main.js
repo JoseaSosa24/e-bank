@@ -1,5 +1,12 @@
 export const usuarios = [
     {
+        nombre: "Administrador",
+        apellido: "",
+        user: "Adm1234",
+        pass: "12345",
+        saldo: 4000000
+    },
+    {
         nombre: "José",
         apellido: "Sosa",
         user: "josesosa",
@@ -46,7 +53,7 @@ export const usuarios = [
 export function validarCredenciales() {
     let sw = false;
     for (let i = 0; i < usuarios.length; i++) {
-        if (usuario.value === usuarios[i].user && contrasena.value === usuarios[i].pass) {
+        if (usuarios.value === usuarios[i].user && contrasena.value === usuarios[i].pass) {
             // console.log("Usuario: " + usuario.value + "=" + usuarios[i].user + "Pass:" + contrasena.value + "=" + usuarios[i].pass);
             return sw = true;
         } else {

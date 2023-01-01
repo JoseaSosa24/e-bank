@@ -27,7 +27,7 @@ let saldoGeneral = document.querySelector("#saldo-general");
 
 import { usuarios } from "./main.js";
 
-let usuarioRamdon = 5;
+let usuarioRamdon = 0;
 
 const expresionRegular = {
   usuario: /^[a-zA-Z0-9\_]{4,16}$/, // Letras, numeros, guion_bajo
