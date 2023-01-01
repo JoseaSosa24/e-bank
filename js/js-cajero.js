@@ -157,7 +157,7 @@ btnRetirar.addEventListener("click", () => {
     agregarRetiro();
     valorRetirar.value = "";
     alertaMensaje.innerHTML = "Retiro exitoso";
-    iconoAlerta.src = "./../img/icon/correcto.png";
+    iconoAlerta.src = "../img/icon/correcto.png";
     setTimeout(() => {
       alertaMensaje.innerHTML = "";
       iconoAlerta.src = "";
