@@ -22,4 +22,4 @@ Credenciales de prueba:
 
 
 ## Este proyecto fue desplegado para su visulización en [Netlify.com](https://e-bank1.netlify.app/).
-©Todos los derechos de autor reservados.
+©Todos los derechos reservados.
