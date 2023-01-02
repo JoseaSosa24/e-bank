@@ -123,13 +123,14 @@ var contarErrores = 3;
 btnIniciar.addEventListener('click', (event) => {
     event.preventDefault();
     if (campos.user == true && campos.pass == true) {
-        event.preventDefault();
-        if (validarCredenciales() == true) {
+        /* event.preventDefault(); */
+        console.log("Campos con datos")
+        if (validarCredenciales(usuario,contrasena) == true) {
             // formulario.action = ('../index.html');
             // formulario.submit();
             iniciandoSesion();
         } else {
-            event.preventDefault();
+            /* event.preventDefault(); */
             contarErrores--;
             intentosAgotados(contarErrores);
             mensajeError("Usuario o Contraseña incorrectos, le quedan " + (contarErrores) + " intentos");
@@ -138,7 +139,7 @@ btnIniciar.addEventListener('click', (event) => {
             limpiarCampos();
         }
     } else {
-        event.preventDefault();
+      /*   event.preventDefault(); */
         mensajeError("Campos vacíos o incorrectos");
     }
 
